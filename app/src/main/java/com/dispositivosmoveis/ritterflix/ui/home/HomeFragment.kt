@@ -1,56 +1,102 @@
 package com.dispositivosmoveis.ritterflix.ui.home
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dispositivosmoveis.ritterflix.R
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.dispositivosmoveis.ritterflix.repository.models.Category
+import com.dispositivosmoveis.ritterflix.repository.models.Movie
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val viewModel: HomeViewModel by viewModel()
+
+    companion object {
+        @JvmStatic
+        fun newInstance(): HomeFragment {
+            return HomeFragment()
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic fun newInstance(param1: String, param2: String) =
-                HomeFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        observeMovies()
+        observeCategories()
+    }
+
+    private fun observeMovies() {
+        viewModel.movies.observe(this, Observer {
+            it.let {
+                setupSmallMoviesAdapter(it)
+                setupMoviesAdapter(it)
+            }
+        })
+    }
+
+    private fun observeCategories() {
+        viewModel.categories.observe(this, Observer {
+            it.let {
+                setupCategoriesAdapter(it)
+            }
+        })
+    }
+
+    private fun setupSmallMoviesAdapter(movies: MutableList<Movie>) {
+        rv_release.adapter = SmallMoviesAdapter(movies)
+        rv_release.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun setupMoviesAdapter(movies: MutableList<Movie>) {
+        rv_keep_watching.adapter = MoviesAdapter(movies)
+        rv_keep_watching.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun setupCategoriesAdapter(categories: MutableList<Category>) {
+        rv_categories.adapter = CategoriesAdapter(categories)
+        rv_categories.layoutManager = GridLayoutManager(activity?.applicationContext, 2)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.custom_toolbar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> menuAction()
+            R.id.search_action -> searchAction()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun menuAction() {
+        Toast.makeText(activity?.applicationContext, "Menu", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun searchAction() {
+        Toast.makeText(activity?.applicationContext, "Search", Toast.LENGTH_SHORT).show()
     }
 }
