@@ -1,3 +1,5 @@
 package com.dispositivosmoveis.ritterflix.repository.models
 
-data class Movie(val name: String)
+import java.io.Serializable
+
+data class Movie(val name: String): Serializable

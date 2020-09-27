@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="category"
             type="com.dispositivosmoveis.ritterflix.repository.models.Category" />
+
+        <variable
+            name="clickListener"
+            type="com.dispositivosmoveis.ritterflix.ui.home.CategoryListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@color/colorMercury">
-        
+        android:background="@color/colorMercury"
+        android:onClick="@{() -> clickListener.onClick(category)}">
+
         <ImageView
             android:id="@+id/img_category"
             android:layout_width="160dp"
             android:layout_height="100dp"
-            tools:srcCompat="@drawable/ic_placeholder"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:srcCompat="@drawable/ic_placeholder" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{category.name}"
-            android:textSize="24sp"
             android:textColor="@color/colorMineShaft"
-            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

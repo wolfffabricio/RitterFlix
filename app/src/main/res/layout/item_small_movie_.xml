@@ -7,12 +7,17 @@
         <variable
             name="movie"
             type="com.dispositivosmoveis.ritterflix.repository.models.Movie" />
+        
+        <variable
+            name="clickListener"
+            type="com.dispositivosmoveis.ritterflix.ui.home.SmallMovieListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:onClick="@{() -> clickListener.onClick(movie)}"
         android:background="@color/colorMercury">
 
         <ImageView

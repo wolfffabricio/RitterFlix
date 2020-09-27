@@ -7,7 +7,10 @@ import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.databinding.ItemSmallMovieBinding
 import com.dispositivosmoveis.ritterflix.repository.models.Movie
 
-class SmallMoviesAdapter(var movies: MutableList<Movie>): RecyclerView.Adapter<SmallMoviesAdapter.ViewHolder>() {
+class SmallMoviesAdapter(
+    var movies: MutableList<Movie>,
+    private val clickListener: SmallMovieListener
+) : RecyclerView.Adapter<SmallMoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -20,14 +23,22 @@ class SmallMoviesAdapter(var movies: MutableList<Movie>): RecyclerView.Adapter<S
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(movies[position])
+        holder.bind(clickListener, movies[position])
     }
 
-    class ViewHolder(val binding: ItemSmallMovieBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: Movie) {
+    class ViewHolder(val binding: ItemSmallMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(clickListener: SmallMovieListener, movie: Movie) {
             binding.movie = movie
             binding.imgMovie.setImageResource(R.drawable.ic_placeholder)
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
+    }
+}
+
+class SmallMovieListener(val clickListener: (typeId: Movie) -> Unit) {
+
+    fun onClick(type: Movie) {
+        clickListener(type)
     }
 }

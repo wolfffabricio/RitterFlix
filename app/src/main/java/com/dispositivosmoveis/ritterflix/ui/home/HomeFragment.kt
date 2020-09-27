@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.repository.models.Category
 import com.dispositivosmoveis.ritterflix.repository.models.Movie
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -66,17 +65,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupSmallMoviesAdapter(movies: MutableList<Movie>) {
-        rv_release.adapter = SmallMoviesAdapter(movies)
-        rv_release.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        val clickListener = SmallMovieListener {
+            (activity as HomeActivity).goToMovieDetail(it)
+        }
+        rv_release.adapter = SmallMoviesAdapter(movies, clickListener)
+        rv_release.layoutManager =
+            LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setupMoviesAdapter(movies: MutableList<Movie>) {
-        rv_keep_watching.adapter = MoviesAdapter(movies)
-        rv_keep_watching.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        val clickListener = MovieListener {
+            (activity as HomeActivity).goToMovieDetail(it)
+        }
+        rv_keep_watching.adapter = MoviesAdapter(movies, clickListener)
+        rv_keep_watching.layoutManager =
+            LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setupCategoriesAdapter(categories: MutableList<Category>) {
-        rv_categories.adapter = CategoriesAdapter(categories)
+        val clickListener = CategoryListener {
+            Toast.makeText(activity?.applicationContext, it.name, Toast.LENGTH_SHORT).show()
+        }
+        rv_categories.adapter = CategoriesAdapter(categories, clickListener)
         rv_categories.layoutManager = GridLayoutManager(activity?.applicationContext, 2)
     }
 
@@ -85,7 +95,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             android.R.id.home -> menuAction()
             R.id.search_action -> searchAction()
         }
