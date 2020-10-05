@@ -9,8 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dispositivosmoveis.ritterflix.R
-import com.dispositivosmoveis.ritterflix.repository.models.Category
-import com.dispositivosmoveis.ritterflix.repository.models.Movie
+import com.dispositivosmoveis.ritterflix.repository.models.Genre
+import com.dispositivosmoveis.ritterflix.repository.models.PopularMovie
+import com.dispositivosmoveis.ritterflix.repository.models.ReleasedMovie
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -43,46 +44,54 @@ class HomeFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        observeMovies()
+        observeReleasedMovies()
+        observePopularMovies()
         observeCategories()
     }
 
-    private fun observeMovies() {
-        viewModel.movies.observe(this, Observer {
+    private fun observeReleasedMovies() {
+        viewModel.releasedMovies?.observe(this, Observer {
             it.let {
-                setupSmallMoviesAdapter(it)
-                setupMoviesAdapter(it)
+                setupSmallMoviesAdapter(it.results)
+            }
+        })
+    }
+
+    private fun observePopularMovies() {
+        viewModel.popularMovies?.observe(this, Observer {
+            it.let {
+                setupMoviesAdapter(it.results)
             }
         })
     }
 
     private fun observeCategories() {
-        viewModel.categories.observe(this, Observer {
+        viewModel.categoriesList?.observe(this, Observer {
             it.let {
-                setupCategoriesAdapter(it)
+                setupCategoriesAdapter(it.genres)
             }
         })
     }
 
-    private fun setupSmallMoviesAdapter(movies: MutableList<Movie>) {
+    private fun setupSmallMoviesAdapter(movies: List<ReleasedMovie>) {
         val clickListener = SmallMovieListener {
-            (activity as HomeActivity).goToMovieDetail(it)
+            (activity as HomeActivity).goToMovieDetail(it.id)
         }
         rv_release.adapter = SmallMoviesAdapter(movies, clickListener)
         rv_release.layoutManager =
             LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun setupMoviesAdapter(movies: MutableList<Movie>) {
+    private fun setupMoviesAdapter(movies: List<PopularMovie>) {
         val clickListener = MovieListener {
-            (activity as HomeActivity).goToMovieDetail(it)
+            (activity as HomeActivity).goToMovieDetail(it.id)
         }
         rv_keep_watching.adapter = MoviesAdapter(movies, clickListener)
         rv_keep_watching.layoutManager =
             LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun setupCategoriesAdapter(categories: MutableList<Category>) {
+    private fun setupCategoriesAdapter(categories: List<Genre>) {
         val clickListener = CategoryListener {
             Toast.makeText(activity?.applicationContext, it.name, Toast.LENGTH_SHORT).show()
         }

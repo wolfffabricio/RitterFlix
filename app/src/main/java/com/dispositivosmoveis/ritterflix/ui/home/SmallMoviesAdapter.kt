@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.databinding.ItemSmallMovieBinding
-import com.dispositivosmoveis.ritterflix.repository.models.Movie
+import com.dispositivosmoveis.ritterflix.repository.models.ReleasedMovie
 
 class SmallMoviesAdapter(
-    var movies: MutableList<Movie>,
+    var movies: List<ReleasedMovie>,
     private val clickListener: SmallMovieListener
 ) : RecyclerView.Adapter<SmallMoviesAdapter.ViewHolder>() {
 
@@ -27,7 +27,7 @@ class SmallMoviesAdapter(
     }
 
     class ViewHolder(val binding: ItemSmallMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(clickListener: SmallMovieListener, movie: Movie) {
+        fun bind(clickListener: SmallMovieListener, movie: ReleasedMovie) {
             binding.movie = movie
             binding.imgMovie.setImageResource(R.drawable.ic_placeholder)
             binding.clickListener = clickListener
@@ -36,9 +36,9 @@ class SmallMoviesAdapter(
     }
 }
 
-class SmallMovieListener(val clickListener: (typeId: Movie) -> Unit) {
+class SmallMovieListener(val clickListener: (typeId: ReleasedMovie) -> Unit) {
 
-    fun onClick(type: Movie) {
+    fun onClick(type: ReleasedMovie) {
         clickListener(type)
     }
 }

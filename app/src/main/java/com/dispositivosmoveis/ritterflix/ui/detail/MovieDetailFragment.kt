@@ -11,11 +11,11 @@ import kotlinx.android.synthetic.main.fragment_movie_detail.*
 class MovieDetailFragment : Fragment() {
 
     companion object {
-        private const val MOVIE = "movie"
+        private const val MOVIE_ID = "movie_id"
 
-        fun newInstance(movie: Movie): MovieDetailFragment {
+        fun newInstance(movieId: Int): MovieDetailFragment {
             val args = Bundle()
-            args.putSerializable(MOVIE, movie)
+            args.putSerializable(MOVIE_ID, movieId)
             val fragment = MovieDetailFragment()
             fragment.arguments = args
             return fragment
@@ -31,9 +31,9 @@ class MovieDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val movie = arguments!!.getSerializable(MOVIE) as Movie
+        val movie = arguments!!.getSerializable(MOVIE_ID) as Int
         val binding = FragmentMovieDetailBinding.inflate(inflater)
-        binding.movie = movie
+//        binding.movie = movie
         return binding.root
     }
 

@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.databinding.ItemCategoryBinding
-import com.dispositivosmoveis.ritterflix.repository.models.Category
+import com.dispositivosmoveis.ritterflix.repository.models.Genre
 
 class CategoriesAdapter(
-    private val categories: MutableList<Category>,
+    private val categories: List<Genre>,
     private val clickListener: CategoryListener
 ) : RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
@@ -28,7 +28,7 @@ class CategoriesAdapter(
 
     class ViewHolder(private val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(clickListener: CategoryListener, category: Category) {
+        fun bind(clickListener: CategoryListener, category: Genre) {
             binding.category = category
             binding.clickListener = clickListener
             binding.imgCategory.setImageResource(R.drawable.ic_placeholder)
@@ -37,9 +37,9 @@ class CategoriesAdapter(
     }
 }
 
-class CategoryListener(val clickListener: (typeId: Category) -> Unit) {
+class CategoryListener(val clickListener: (typeId: Genre) -> Unit) {
 
-    fun onClick(type: Category) {
+    fun onClick(type: Genre) {
         clickListener(type)
     }
 }

@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.databinding.ItemMovieBinding
-import com.dispositivosmoveis.ritterflix.repository.models.Movie
+import com.dispositivosmoveis.ritterflix.repository.models.PopularMovie
 
-class MoviesAdapter(val movies: MutableList<Movie>, val clickListener: MovieListener) :
+class MoviesAdapter(val movies: List<PopularMovie>, val clickListener: MovieListener) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +25,7 @@ class MoviesAdapter(val movies: MutableList<Movie>, val clickListener: MovieList
     }
 
     class ViewHolder(val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(clickListener: MovieListener, movie: Movie) {
+        fun bind(clickListener: MovieListener, movie: PopularMovie) {
             binding.movie = movie
             binding.clickListener = clickListener
             binding.imgMovie.setImageResource(R.drawable.ic_placeholder)
@@ -34,9 +34,9 @@ class MoviesAdapter(val movies: MutableList<Movie>, val clickListener: MovieList
     }
 }
 
-class MovieListener(val clickListener: (typeId: Movie) -> Unit) {
+class MovieListener(val clickListener: (typeId: PopularMovie) -> Unit) {
 
-    fun onClick(type: Movie) {
+    fun onClick(type: PopularMovie) {
         clickListener(type)
     }
 }

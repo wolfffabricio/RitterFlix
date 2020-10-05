@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.repository.models.Movie
+import com.dispositivosmoveis.ritterflix.repository.models.ReleasedMovie
 import com.dispositivosmoveis.ritterflix.ui.detail.MovieDetailFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -28,10 +29,10 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun goToMovieDetail(movie: Movie) {
+    fun goToMovieDetail(movieId: Int) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.home_container, MovieDetailFragment.newInstance(movie), "detailFragment")
+            .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId), "detailFragment")
             .addToBackStack(null)
             .commit()
     }
