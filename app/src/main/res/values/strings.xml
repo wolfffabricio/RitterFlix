@@ -15,10 +15,10 @@
     <string name="password">Senha</string>
     <string name="login">Login</string>
     <string name="releases">Lançamentos</string>
-    <string name="keep_watching">Continue Assitindo</string>
     <string name="know_more">Saiba mais</string>
     <string name="invalid_credentials">Credenciais inválidas</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_account">ABRIR CONTA</string>
+    <string name="popular_movies">Populares</string>
 </resources>
