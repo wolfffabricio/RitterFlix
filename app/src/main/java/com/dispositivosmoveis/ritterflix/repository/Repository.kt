@@ -7,6 +7,7 @@ import com.dispositivosmoveis.ritterflix.repository.http.ApiClient
 import com.dispositivosmoveis.ritterflix.repository.http.ApiService
 import com.dispositivosmoveis.ritterflix.repository.http.LANGUAGE
 import com.dispositivosmoveis.ritterflix.repository.models.Genres
+import com.dispositivosmoveis.ritterflix.repository.models.Movie
 import com.dispositivosmoveis.ritterflix.repository.models.Popular
 import com.dispositivosmoveis.ritterflix.repository.models.Releases
 import retrofit2.Call
@@ -68,6 +69,28 @@ class Repository {
 
             override fun onResponse(call: Call<Genres>, response: Response<Genres>) {
                 val res = response.body()
+                if (response.code() == 200 && res != null) {
+                    data.value = res
+                } else {
+                    data.value = null
+                }
+            }
+        })
+        return data
+    }
+
+    fun getMovieWithId(id: Int): LiveData<Movie> {
+        val data = MutableLiveData<Movie>()
+
+        apiService?.getMovieWithId(id, API_KEY, LANGUAGE)?.enqueue(object : Callback<Movie> {
+
+            override fun onFailure(call: Call<Movie>, t: Throwable) {
+                data.value = null
+            }
+
+            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
+                val res = response.body()
+
                 if (response.code() == 200 && res != null) {
                     data.value = res
                 } else {

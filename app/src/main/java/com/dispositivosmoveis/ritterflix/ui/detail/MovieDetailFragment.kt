@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.dispositivosmoveis.ritterflix.databinding.FragmentMovieDetailBinding
-import com.dispositivosmoveis.ritterflix.repository.models.Movie
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieDetailFragment : Fragment() {
+
+    private val viewModel: MovieDetailViewModel by viewModel()
+    private var binding: FragmentMovieDetailBinding? = null
 
     companion object {
         private const val MOVIE_ID = "movie_id"
@@ -31,10 +35,8 @@ class MovieDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val movie = arguments!!.getSerializable(MOVIE_ID) as Int
-        val binding = FragmentMovieDetailBinding.inflate(inflater)
-//        binding.movie = movie
-        return binding.root
+        binding = FragmentMovieDetailBinding.inflate(inflater)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,6 +44,15 @@ class MovieDetailFragment : Fragment() {
         (activity as AppCompatActivity).setSupportActionBar(detail_toolbar)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        val movieId = arguments!!.getSerializable(MOVIE_ID) as Int
+        loader.visibility = View.VISIBLE
+        viewModel.getMovieWithId(movieId)?.observe(this, Observer {
+            it.let {
+                loader.visibility = View.INVISIBLE
+                binding?.movie = it
+            }
+        })
     }
 
     private fun goBack() {

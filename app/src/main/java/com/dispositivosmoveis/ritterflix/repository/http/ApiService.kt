@@ -1,6 +1,7 @@
 package com.dispositivosmoveis.ritterflix.repository.http
 
 import com.dispositivosmoveis.ritterflix.repository.models.Genres
+import com.dispositivosmoveis.ritterflix.repository.models.Movie
 import com.dispositivosmoveis.ritterflix.repository.models.Popular
 import com.dispositivosmoveis.ritterflix.repository.models.Releases
 import retrofit2.Call
@@ -30,4 +31,11 @@ interface ApiService {
         @Query("api_key") apiKey: String,
         @Query("language") language: String
     ): Call<Genres>
+
+    @GET("3/movie/{movie_id}")
+    fun getMovieWithId(
+        @Path("movie_id") id: Int,
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String
+    ): Call<Movie>
 }
