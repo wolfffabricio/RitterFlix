@@ -34,10 +34,20 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.validateCredentials(viewModel.getEmailFromPrefs(), viewModel.getPasswordFromPrefs()).observe(this, Observer {
+            if (it) {
+                activity?.finish()
+                startActivity(Intent(activity?.applicationContext, HomeActivity::class.java))
+            }
+        })
+
         login_button.setOnClickListener {
             viewModel.validateCredentials(et_email.text.toString(), et_password.text.toString()).observe(this,
                 Observer {
                     if (it) {
+                        if (switch_save_login.isChecked) {
+                            viewModel.saveLogin(et_email.text.toString(), et_password.text.toString())
+                        }
                         activity?.finish()
                         startActivity(Intent(activity?.applicationContext, HomeActivity::class.java))
                     } else {

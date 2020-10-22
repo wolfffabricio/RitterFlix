@@ -84,13 +84,36 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
+        android:id="@+id/ll_switch"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_below="@id/password_outlined_edit_text">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_save_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/SwitchTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_data"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/colorSilverChalice"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/password_outlined_edit_text">
+        android:layout_below="@id/ll_switch">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/open_account_button"
