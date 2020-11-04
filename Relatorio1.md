@@ -94,9 +94,9 @@
 - [HomeActivity](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/home/HomeActivity.kt)
 
   Além disso, os seguintes *Fragments* são inicializados através das *activities*:
-- [Login Fragment](src/main/java/com/dispositivosmoveis/ritterflix/ui/login/LoginFragment.kt)
-- [Home Fragment](src/main/java/com/dispositivosmoveis/ritterflix/ui/home/HomeFragment.kt)
-- [MovieDetail Fragment](src/main/java/com/dispositivosmoveis/ritterflix/ui/detail/MovieDetailFragment.kt)
+- [Login Fragment](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/login/LoginFragment.kt)
+- [Home Fragment](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/home/HomeFragment.kt)
+- [MovieDetail Fragment](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/detail/MovieDetailFragment.kt)
  
 
 ### <a name="item25"></a>2.5 Banco de Dados
