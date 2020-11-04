@@ -29,8 +29,7 @@
   - [3.1 Telas já desenvolvidas](#item31)
   - [3.2 Telas a serem desenvolvidas](#item32)
 - [4. Dificuldades encontradas](#item4)
-  - [4.1 Dificuldades no projeto](#item41)
-  - [4.2 Dificuldades individuais](#item42)
+  - [4.1 Dificuldades individuais](#item41)
 - [5. Tarefas para 11/11](#item5)
 - [6. Tarefas sem data prevista](#item6)
 
@@ -90,9 +89,9 @@
 
 ### <a name="item24"></a>2.4 Componentes
   Até o momento, as seguintes *Activities* foram desenvolvidas no aplicativo:
-- [SplashScreen Activity](src/main/java/com/dispositivosmoveis/ritterflix/ui/splash/SplashScreenActivity.kt)
-- [Login Activity](src/main/java/com/dispositivosmoveis/ritterflix/ui/login/LoginActivity.kt)
-- [HomeActivity](src/main/java/com/dispositivosmoveis/ritterflix/ui/home/HomeActivity.kt)
+- [SplashScreen Activity](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/splash/SplashScreenActivity.kt)
+- [Login Activity](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/login/LoginActivity.kt)
+- [HomeActivity](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/home/HomeActivity.kt)
 
   Além disso, os seguintes *Fragments* são inicializados através das *activities*:
 - [Login Fragment](src/main/java/com/dispositivosmoveis/ritterflix/ui/login/LoginFragment.kt)
@@ -109,13 +108,13 @@
 
 ### <a name="item31"></a>3.1 Telas já desenvolvidas:
 - <a name="item311"></a>Splash screen  
-![](/app/src/main/res/screenshots/splash-screen.png)
+<img src="/app/src/main/res/screenshots/splash-screen.png" height="500" width="250">
 - <a name="item312"></a>Tela de login  
-![](/app/src/main/res/screenshots/login.jpeg)
+<img src="/app/src/main/res/screenshots/login.jpeg" height="500" width="250">
 - <a name="item313"></a>Tela principal  
-![](/app/src/main/res/screenshots/home.png)
+<img src="/app/src/main/res/screenshots/home.png" height="500" width="250">
 - <a name="item314"></a>Tela de detalhe do filme  
-![](/app/src/main/res/screenshots/movie-detail.png)  
+<img src="/app/src/main/res/screenshots/movie-detail.png" height="500" width="250">  
 
 ### <a name="item32"></a>3.2 Telas a serem desenvolvidas:
 - Tela de cadastro de conta
@@ -124,9 +123,7 @@
 ---
 ## <a name="item4"></a>4. Dificuldades encontradas:
 
-### <a name="item41"></a>4.1 Dificuldades no projeto
-
-### <a name="item42"></a>4.2 Dificuldades individuais
+### <a name="item41"></a>4.1 Dificuldades individuais
 
 - Fabrício 
 > "ipsum lorem ipsum"
