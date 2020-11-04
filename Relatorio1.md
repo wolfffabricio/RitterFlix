@@ -135,7 +135,8 @@
 > "Minha principal dificuldade tem sido o desempenho da minha máquina. A utilização do Android Studio + Máquina Virtual exige muito do hardware. Tenho tido dificuldades também de entender a matéria (e consequentemente o desenvolvimento do projeto) mas aos poucos estou buscando dominar o assunto."
 
 - Márcio 
-> "ipsum lorem ipsum"
+> "Minha principal dificuldade é em relação ao conhecimento prévio em programação mobile android que a disciplina exige. Minha área de atuação não é de front-end, então não possuo esse conhecimento necessário já adquirido. Some-se a esta dificuldade o volume de conteúdo e a falta de tempo em aula para praticar, exercícios propriamente, somente assistindo as aulas certamente as dúvidas e dificuldade/erros/problemas não aparecem, então esses problemas acumulam para o momento de por a "mão na massa". 
+Não estou com isso reclamando da didática, do professor, da condução das aulas, há um conteúdo à ser transmitido, ele requer um volume por aula e tudo certo."
 
 - Rafael 
 > "Minha principal dificuldade está sendo entender todos os componentes utilizados no desenvolvimento *mobile*. São conceitos muito novos para mim, que não estão presentes em outras arquiteturas, como *Web* e *Desktop*. Como os componentes parecem formar um paradigma na programação *mobile*, entendê-los é crucial para acompanhar a disciplina. A quantidade nova de conteúdo também não é bem conciliável com uma rotina corrida, com pouco tempo disponível para investir em assuntos mais específicos. Meu grande desafio tem sido a administração do tempo."  
