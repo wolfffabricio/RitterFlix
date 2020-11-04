@@ -126,7 +126,7 @@
 ### <a name="item41"></a>4.1 Dificuldades individuais
 
 - Fabrício 
-> "ipsum lorem ipsum"
+> "Não vejo como dificuldades, mas sim como desafios que tive: Implementação da arquitetura MVVM, estudar e implementar o Jetpack component e conseguir conciliar tempo de desenvolvimento com várias outras demandas do dia a dia."
 
 - Filipe
 > "Em relação ao desenvolvimento do projeto, minha pricipal dificuldade foi com o atributo "id" dos componentes. Algumas vezes a IDE não acusa erro na compilação, mas a aplicação não funciona corretamente. Também tive dificuldades de hardware durante o estudo da disciplina, pois a máquina virtual acabava prejudicando muito o desempenho. O principal gargalo parece ser o HDD."
