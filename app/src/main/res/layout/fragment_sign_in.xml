@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".ui.signin.SignInFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/white"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/signin_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/signin_title"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nome_outlined_edit_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin_title"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="16dp"
+        android:hint="Nome"
+        android:textColorHint="@color/colorSilverChalice"
+        app:boxStrokeColor="@color/colorSilverChalice"
+        app:boxStrokeWidth="2dp"
+        app:hintTextColor="@color/colorSilverChalice"
+        app:placeholderText="Nome"
+        app:placeholderTextColor="@color/colorSilverChalice">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorSilverChalice"
+            android:textCursorDrawable="@null" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sobrenome_outlined_edit_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nome_outlined_edit_text"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="16dp"
+        android:hint="Sobrenome"
+        android:textColorHint="@color/colorSilverChalice"
+        app:boxStrokeColor="@color/colorSilverChalice"
+        app:boxStrokeWidth="2dp"
+        app:hintTextColor="@color/colorSilverChalice"
+        app:placeholderText="Sobrenome"
+        app:placeholderTextColor="@color/colorSilverChalice">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_sobrenome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorSilverChalice"
+            android:textCursorDrawable="@null" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_outlined_edit_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sobrenome_outlined_edit_text"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="16dp"
+        android:hint="@string/password"
+        android:textColorHint="@color/colorSilverChalice"
+        app:boxStrokeColor="@color/colorSilverChalice"
+        app:boxStrokeWidth="2dp"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/colorSilverChalice"
+        app:hintTextColor="@color/colorSilverChalice"
+        app:placeholderText="@string/password"
+        app:placeholderTextColor="@color/colorSilverChalice">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/colorSilverChalice"
+            android:textCursorDrawable="@null" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</RelativeLayout>
