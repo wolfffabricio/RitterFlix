@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
+       <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -19,6 +19,35 @@
             app:title="@string/app_name"
             app:titleTextColor="@android:color/white"
             tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/destaques"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/destaques"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/carousel_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:fillColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@id/section_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/destaques"
+            app:pageColor="@color/colorPrimary"
+            app:radius="7dp"
+            app:slideInterval="3000"
+            app:strokeColor="@color/colorAccent"
+            app:strokeWidth="1dp"
+        />
+
 
         <TextView
             android:id="@+id/section_1"
@@ -30,7 +59,7 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@id/carousel_view" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_release"
@@ -67,4 +96,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_keep_watching" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>

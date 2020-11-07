@@ -48,6 +48,8 @@
                     app:srcCompat="@drawable/ic_placeholder"
                     tools:ignore="MissingConstraints" />
 
+
+
                 <TextView
                     android:id="@+id/tv_movie_title"
                     android:layout_width="match_parent"
