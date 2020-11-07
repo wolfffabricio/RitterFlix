@@ -11,7 +11,6 @@ import android.widget.MediaController
 import com.dispositivosmoveis.ritterflix.R
 import kotlinx.android.synthetic.main.fragment_search.*
 
-
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -27,26 +26,24 @@ class SearchFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
     }
-  /* override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val mediaController = MediaController(this)
-        mediaController.setAnchorView(videoView)
-        val Uri:Uri = Uri.parse("https://www.youtube.com/watch?v=gNtJ4HdMavo")
-        videoView.setMediaController(mediaController)
-        videoView.setVideoURI(Uri)
-        videoView.requestFocus()
-        videoView.start()
+    /* override fun onActivityCreated(savedInstanceState: Bundle?) {
+      super.onActivityCreated(savedInstanceState)
+      val mediaController = MediaController(this)
+      mediaController.setAnchorView(videoView)
+      val Uri:Uri = Uri.parse("https://www.youtube.com/watch?v=gNtJ4HdMavo")
+      videoView.setMediaController(mediaController)
+      videoView.setVideoURI(Uri)
+      videoView.requestFocus()
+      videoView.start()
 
-    }*/
+  }*/
 
 
     override fun onCreateView(

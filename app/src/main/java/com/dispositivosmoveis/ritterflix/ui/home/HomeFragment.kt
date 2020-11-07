@@ -19,6 +19,7 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModel()
 
+
     companion object {
         @JvmStatic
         fun newInstance(): HomeFragment {
@@ -44,9 +45,25 @@ class HomeFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        observeCarouselMovies()
         observeReleasedMovies()
         observePopularMovies()
         observeCategories()
+    }
+
+    private fun observeCarouselMovies(){
+        val imgs:IntArray = intArrayOf(
+            R.drawable.pantera_negra,
+            R.drawable.spider_man_far_from_home,
+            R.drawable.aquaman,
+            R.drawable.jurassic_world
+        )
+
+        carousel_view.pageCount = imgs.size
+        carousel_view.setImageListener{position, imageView ->
+            imageView.setImageResource(imgs[position])
+
+        }
     }
 
     private fun observeReleasedMovies() {
@@ -105,8 +122,8 @@ class HomeFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            android.R.id.home -> menuAction()
-            R.id.search_action -> searchAction()
+            //android.R.id.home -> menuAction()
+            //R.id.search_action -> searchAction()
         }
         return super.onOptionsItemSelected(item)
     }
