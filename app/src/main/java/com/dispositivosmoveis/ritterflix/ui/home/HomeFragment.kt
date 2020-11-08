@@ -59,11 +59,10 @@ class HomeFragment : Fragment() {
             R.drawable.jurassic_world
         )
 
-        carousel_view.pageCount = imgs.size
         carousel_view.setImageListener{position, imageView ->
             imageView.setImageResource(imgs[position])
-
         }
+        carousel_view.pageCount = imgs.size
     }
 
     private fun observeReleasedMovies() {
