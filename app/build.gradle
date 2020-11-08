@@ -41,9 +41,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //implementation "com.android.support.cardview-v7:27.1.1"
-
-
 
     // Google Support
     implementation "androidx.appcompat:appcompat:$appcompat_version"
@@ -63,7 +60,7 @@ dependencies {
     // RecyclerView
     implementation "androidx.recyclerview:recyclerview:$recycler_view_version"
 
-    //Koin for Android
+    // Koin for Android
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-scope:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
@@ -78,10 +75,12 @@ dependencies {
 
     // Picasso
     implementation "com.squareup.picasso:picasso:$picasso_version"
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$navigation_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$navigation_lifecycle"
 
     // Tests
     testImplementation "junit:junit:$junit_version"

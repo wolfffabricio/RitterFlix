@@ -19,7 +19,6 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModel()
 
-
     companion object {
         @JvmStatic
         fun newInstance(): HomeFragment {
@@ -66,26 +65,20 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeReleasedMovies() {
-        viewModel.releasedMovies?.observe(this, Observer {
-            it.let {
-                setupSmallMoviesAdapter(it.results)
-            }
+        viewModel.releasedMovies?.observe(viewLifecycleOwner, Observer {
+            setupSmallMoviesAdapter(it.results)
         })
     }
 
     private fun observePopularMovies() {
-        viewModel.popularMovies?.observe(this, Observer {
-            it.let {
-                setupMoviesAdapter(it.results)
-            }
+        viewModel.popularMovies?.observe(viewLifecycleOwner, Observer {
+            setupMoviesAdapter(it.results)
         })
     }
 
     private fun observeCategories() {
-        viewModel.categoriesList?.observe(this, Observer {
-            it.let {
-                setupCategoriesAdapter(it.genres)
-            }
+        viewModel.categoriesList?.observe(viewLifecycleOwner, Observer {
+            setupCategoriesAdapter(it.genres)
         })
     }
 
@@ -121,17 +114,12 @@ class HomeFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            //android.R.id.home -> menuAction()
-            //R.id.search_action -> searchAction()
+            android.R.id.home -> menuAction()
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun menuAction() {
         Toast.makeText(activity?.applicationContext, "Menu", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun searchAction() {
-        Toast.makeText(activity?.applicationContext, "Search", Toast.LENGTH_SHORT).show()
     }
 }

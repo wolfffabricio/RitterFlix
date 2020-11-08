@@ -45,9 +45,9 @@ class MovieDetailFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        val movieId = arguments!!.getSerializable(MOVIE_ID) as Int
+        val movieId = requireArguments().getSerializable(MOVIE_ID) as Int
         loader.visibility = View.VISIBLE
-        viewModel.getMovieWithId(movieId)?.observe(this, Observer {
+        viewModel.getMovieWithId(movieId)?.observe(viewLifecycleOwner, Observer {
             it.let {
                 loader.visibility = View.INVISIBLE
                 binding?.movie = it
