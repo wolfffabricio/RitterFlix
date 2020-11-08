@@ -5,9 +5,12 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.databinding.FragmentMovieDetailBinding
+import com.dispositivosmoveis.ritterflix.extensions.shareContentWithText
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.*
 
 class MovieDetailFragment : Fragment() {
 
@@ -59,9 +62,26 @@ class MovieDetailFragment : Fragment() {
         activity?.onBackPressed()
     }
 
+    private fun shareMovie() {
+        viewModel.movie.value.let {
+            if (it != null) {
+                val shareContent = "https://www.themoviedb.org/movie/" + it.id + "-" + it.title.replace(
+                    " ",
+                    "-"
+                ).toLowerCase(Locale.ROOT)
+                shareContentWithText(text = shareContent)
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.custom_menu_movie_detail, menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> goBack()
+            R.id.share_action -> shareMovie()
         }
         return super.onOptionsItemSelected(item)
     }

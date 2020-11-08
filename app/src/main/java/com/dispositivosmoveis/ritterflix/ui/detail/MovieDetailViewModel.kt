@@ -9,14 +9,15 @@ import com.dispositivosmoveis.ritterflix.repository.models.Movie
 class MovieDetailViewModel: ViewModel() {
 
     private var repository: Repository? = null
-    private var movie: LiveData<Movie>? = null
+    private var _movie = MutableLiveData<Movie>()
+    val movie: LiveData<Movie> get() = _movie
 
     init {
         repository = Repository()
-        movie = MutableLiveData()
     }
 
     fun getMovieWithId(id: Int): LiveData<Movie>? {
-        return repository?.getMovieWithId(id)
+        _movie = repository?.getMovieWithId(id) as MutableLiveData<Movie>
+        return _movie
     }
 }

@@ -108,10 +108,6 @@ class HomeFragment : Fragment() {
         rv_categories.layoutManager = GridLayoutManager(activity?.applicationContext, 2)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.custom_toolbar, menu)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> menuAction()
