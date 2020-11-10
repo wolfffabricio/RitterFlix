@@ -38,4 +38,13 @@ interface ApiService {
         @Query("api_key") apiKey: String,
         @Query("language") language: String
     ): Call<Movie>
+
+    @GET("3/discover/movie")
+    fun dicoverMovies(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("page") page: Int,
+        @Query("include_video") includeVideo: Boolean,
+        @Query("with_genres") withGenres: String
+    ): Call<Popular>
 }

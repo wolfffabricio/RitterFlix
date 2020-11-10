@@ -1,5 +1,6 @@
 package com.dispositivosmoveis.ritterflix.di
 
+import com.dispositivosmoveis.ritterflix.ui.categoryFilms.CategoryFilmsViewModel
 import com.dispositivosmoveis.ritterflix.ui.detail.MovieDetailViewModel
 import com.dispositivosmoveis.ritterflix.ui.home.HomeViewModel
 import com.dispositivosmoveis.ritterflix.ui.login.LoginViewModel
@@ -24,5 +25,9 @@ val appModule = module {
 
     viewModel {
         MovieDetailViewModel()
+    }
+
+    viewModel {
+        CategoryFilmsViewModel()
     }
 }

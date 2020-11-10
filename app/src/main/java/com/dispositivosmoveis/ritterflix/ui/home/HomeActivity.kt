@@ -8,6 +8,7 @@ import android.widget.MediaController
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.repository.models.Movie
 import com.dispositivosmoveis.ritterflix.repository.models.ReleasedMovie
+import com.dispositivosmoveis.ritterflix.ui.categoryFilms.CategoryFilmsFragment
 import com.dispositivosmoveis.ritterflix.ui.detail.MovieDetailFragment
 import com.synnapps.carouselview.CarouselView
 import kotlinx.android.synthetic.*
@@ -65,6 +66,14 @@ class HomeActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId), "detailFragment")
+            .addToBackStack(null)
+            .commit()
+    }
+
+    fun goToCategoryFilmsList(categoryId: Int) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.home_container, CategoryFilmsFragment.newInstance(categoryId), "categoryFilmsFragment")
             .addToBackStack(null)
             .commit()
     }

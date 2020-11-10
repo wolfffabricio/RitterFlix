@@ -102,7 +102,7 @@ class HomeFragment : Fragment() {
 
     private fun setupCategoriesAdapter(categories: List<Genre>) {
         val clickListener = CategoryListener {
-            Toast.makeText(activity?.applicationContext, it.name, Toast.LENGTH_SHORT).show()
+            (activity as HomeActivity).goToCategoryFilmsList(it.id)
         }
         rv_categories.adapter = CategoriesAdapter(categories, clickListener)
         rv_categories.layoutManager = GridLayoutManager(activity?.applicationContext, 2)

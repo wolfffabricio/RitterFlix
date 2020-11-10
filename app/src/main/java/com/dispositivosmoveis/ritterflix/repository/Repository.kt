@@ -101,6 +101,26 @@ class Repository {
         return data
     }
 
+    fun discoverMovies(genreId: String): LiveData<Popular> {
+        val data = MutableLiveData<Popular>()
+
+        apiService?.dicoverMovies(API_KEY, LANGUAGE, 1, true, genreId)?.enqueue(object : Callback<Popular> {
+            override fun onFailure(call: Call<Popular>, t: Throwable) {
+                data.value = null
+            }
+
+            override fun onResponse(call: Call<Popular>, response: Response<Popular>) {
+                val res = response.body()
+                if (response.code() == 200 && res != null) {
+                    data.value = res
+                } else {
+                    data.value = null
+                }
+            }
+        })
+        return data
+    }
+
     init {
         apiService = ApiClient.getApiClient().create(ApiService::class.java)
     }
