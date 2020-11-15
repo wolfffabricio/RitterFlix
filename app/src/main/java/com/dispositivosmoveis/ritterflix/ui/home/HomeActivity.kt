@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
         if (Intent.ACTION_VIEW == intent.action) {
             val uri = intent.data
             val id = uri!!.getQueryParameter("id")
-            goToMovieDetail(id?.toInt() ?: 0, uri.host ?: "", false)
+            goToMovieDetail(id?.toInt() ?: 0, false)
         }
     }
 
@@ -64,17 +64,17 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun goToMovieDetail(movieId: Int, shareHost: String = "", addToBackStack: Boolean = true) {
+    fun goToMovieDetail(movieId: Int, addToBackStack: Boolean = true) {
         if (addToBackStack) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId, shareHost), "detailFragment")
+                .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId), "detailFragment")
                 .addToBackStack(null)
                 .commit()
         } else {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId, shareHost), "detailFragment")
+                .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId), "detailFragment")
                 .commit()
         }
     }

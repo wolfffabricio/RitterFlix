@@ -15,16 +15,13 @@ class MovieDetailFragment : Fragment() {
 
     private val viewModel: MovieDetailViewModel by viewModel()
     private var binding: FragmentMovieDetailBinding? = null
-    private var host: String = ""
 
     companion object {
         private const val MOVIE_ID = "movie_id"
-        private const val HOST = "host"
 
-        fun newInstance(movieId: Int, shareHost: String): MovieDetailFragment {
+        fun newInstance(movieId: Int): MovieDetailFragment {
             val args = Bundle()
             args.putSerializable(MOVIE_ID, movieId)
-            args.putSerializable(HOST, shareHost)
             val fragment = MovieDetailFragment()
             fragment.arguments = args
             return fragment
@@ -51,7 +48,6 @@ class MovieDetailFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
 
         val movieId = requireArguments().getSerializable(MOVIE_ID) as Int
-        host = requireArguments().getSerializable(HOST) as String
         loader.visibility = View.VISIBLE
         viewModel.getMovieWithId(movieId)?.observe(viewLifecycleOwner, Observer {
             it.let {
