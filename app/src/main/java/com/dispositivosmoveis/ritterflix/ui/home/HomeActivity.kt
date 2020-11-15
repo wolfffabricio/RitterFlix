@@ -1,20 +1,13 @@
 package com.dispositivosmoveis.ritterflix.ui.home
 
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import android.widget.MediaController
 import com.dispositivosmoveis.ritterflix.R
-import com.dispositivosmoveis.ritterflix.repository.models.Movie
-import com.dispositivosmoveis.ritterflix.repository.models.ReleasedMovie
 import com.dispositivosmoveis.ritterflix.ui.categoryFilms.CategoryFilmsFragment
 import com.dispositivosmoveis.ritterflix.ui.detail.MovieDetailFragment
-import com.synnapps.carouselview.CarouselView
-import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_search.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -28,7 +21,6 @@ class HomeActivity : AppCompatActivity() {
                 .add(R.id.home_container, HomeFragment.newInstance(), "homeFragment")
                 .commit()
         }
-
 
         val homeFragment = HomeFragment()
         val searchFragment = SearchFragment()
@@ -44,7 +36,17 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
+    }
 
+    override fun onResume() {
+        super.onResume()
+
+        val intent = intent
+        if (Intent.ACTION_VIEW == intent.action) {
+            val uri = intent.data
+            val id = uri!!.getQueryParameter("id")
+            goToMovieDetail(id?.toInt() ?: 0, uri.host ?: "", false)
+        }
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
@@ -62,12 +64,19 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun goToMovieDetail(movieId: Int) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId), "detailFragment")
-            .addToBackStack(null)
-            .commit()
+    fun goToMovieDetail(movieId: Int, shareHost: String = "", addToBackStack: Boolean = true) {
+        if (addToBackStack) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId, shareHost), "detailFragment")
+                .addToBackStack(null)
+                .commit()
+        } else {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.home_container, MovieDetailFragment.newInstance(movieId, shareHost), "detailFragment")
+                .commit()
+        }
     }
 
     fun goToCategoryFilmsList(categoryId: Int) {
