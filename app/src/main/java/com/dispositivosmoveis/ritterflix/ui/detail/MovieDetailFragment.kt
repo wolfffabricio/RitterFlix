@@ -10,7 +10,6 @@ import com.dispositivosmoveis.ritterflix.databinding.FragmentMovieDetailBinding
 import com.dispositivosmoveis.ritterflix.extensions.shareContentWithText
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.*
 
 class MovieDetailFragment : Fragment() {
 
@@ -69,15 +68,7 @@ class MovieDetailFragment : Fragment() {
     private fun shareMovie() {
         viewModel.movie.value.let {
             if (it != null) {
-                var shareContent = "https://www.themoviedb.org/movie/" + it.id + "-" + it.title.replace(
-                    " ",
-                    "-"
-                ).toLowerCase(Locale.ROOT)
-
-                if (host.isNotEmpty()) {
-                    shareContent = host + "?id=" + it.id
-                }
-
+                val shareContent = "uniritterfilmes.edu.br?id=" + it.id
                 shareContentWithText(text = shareContent)
             }
         }
