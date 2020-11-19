@@ -64,7 +64,7 @@ class MovieDetailFragment : Fragment() {
     private fun shareMovie() {
         viewModel.movie.value.let {
             if (it != null) {
-                val shareContent = "uniritterfilmes.edu.br?id=" + it.id
+                val shareContent = "filmes.uniritter.edu.br/filme?id=" + it.id + "&de=Jean"
                 shareContentWithText(text = shareContent)
             }
         }
