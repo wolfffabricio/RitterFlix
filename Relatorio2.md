@@ -1,6 +1,6 @@
 # Aplicativo RitterFlix
 
-# Relatório de entrega A1 - 02/12/2020
+# Relatório de entrega N2 - 02/12/2020
 
 ###### Grupo:
 
@@ -13,27 +13,43 @@
 ### Índice:
 
 - [1. Inovações e implementações pós 04/11/2020](#item1)
-- [2. Funcionalidades do do Aplicativo](#item2)
 
-  - [2.1 Resumo das funcionalidades](#item21)
+  - [1.1 Compartilhamento de filmes](#item11)
+  - [1.2 Bottom Bar](#item12)
 
-- [2. Detalhamento do Aplicativo](#item2)
-  - [2.1 Tecnologias utilizadas na aplicação](#item21)
-  - [2.2 Arquitetura MVVM](#item22)
-  - [2.3 Conexão com a API](#item23)
-  - [2.4 Componentes](#item24)
-  - [2.5 Banco de Dados](#item25)
-- [3. Telas do Aplicativo](#item3)
-  - [3.1 Telas já desenvolvidas](#item31)
-  - [3.2 Telas a serem desenvolvidas](#item32)
+- [2. Funcionalidades e implementações exigidas na entrega](#item2)
+
+  - [2.1 Itens obrigatórios](#item21)
+  - [2.2 Itens opcionais](#item22)
+
+  <!-- Item detalhamento: referenciar tudo para o relatório 1 -->
+
+- [3. Detalhamento do Aplicativo](#item2)
+
+  - [3.1 Informações do Relatório 1](#item21)
+
+- [4. Animações demonstrativas](#item4)
+  - [4.1 Login no aplicativo](#item41)
+  - [4.2 Compartilhamento externo de informações](#item42)
+  - [4.3 Acesso a informações compartilhadas externamente](#item43)
+- [4. Telas do Aplicativo](#item3)
+  - [4.1 Telas já desenvolvidas - Relatório 1](#item)
+  - [4.2 Telas já desenvolvidas - Relatório 2](#item)
+  - [4.3 Telas a serem desenvolvidas](#item)
 - [4. Dificuldades encontradas](#item4)
-  - [4.1 Dificuldades individuais](#item41)
-- [5. Tarefas para 11/11](#item5)
-- [6. Tarefas sem data prevista](#item6)
+- [5. Tarefas previstas no Relatório 1](#item5)
+- [6. Tarefas previstas para a entrega final](#item6)
 
 ---
 
 ## <a name="item1"></a>1. Inovações e implementações pós 04/11/2020
+
+### <a name="item12"></a>1.1 Bottom bar
+
+### <a name="item13"></a>1.2 Compartilhamento externo de filmes
+
+intent filter
+metodo compartilhamento
 
 ---
 
@@ -122,24 +138,19 @@ Até o momento, as seguintes _Activities_ foram desenvolvidas no aplicativo:
 
 ---
 
-## <a name="item5"></a>5. Tarefas para 11/11:
+## <a name="item5"></a>5. Tarefas previstas na entrega Relatório 1:
 
 | Tarefa                                      | Responsável        | Desenvolvido |
 | ------------------------------------------- | ------------------ | ------------ |
-| Componente "bottom bar"                     | Filipe Drago       | X            |
+| Componente "bottom bar"                     | Filipe Drago       | ----sim----- |
 | Função de logout                            | Lucas Rambo        |              |
-| Atualização do modelo do banco de dados     | Márcio Alves       | X            |
+| Atualização do modelo do banco de dados     | Márcio Alves       | ----sim----- |
 | Criação do ícone do aplicativo              | Rafael Panzenhagen |              |
-| Botão "assistir trailer no _YouTube_"       | Márcio Alves       | X            |
-| Botão "compartilhar filme"                  | Fabrício Wolff     | X            |
+| Botão "assistir trailer no _YouTube_"       | Márcio Alves       | ----sim----- |
+| Botão "compartilhar filme"                  | Fabrício Wolff     | ----sim----- |
 | Listar filmes a partir do botão "categoria" | Fabrício Wolff     |              |
 | Validação de login com _FireBase_           | Fabrício Wolff     |              |
-| Formulário de criação de conta              | Rafael Panzenhagen | X            |
-
-## <a name="item6"></a>6. Tarefas sem data prevista:
-
-| Tarefa                          | Responsável    | Desenvolvido |
-| ------------------------------- | -------------- | ------------ |
-| Função de busca                 | _a definir_    | X            |
-| Implementação do banco de dados | Fabrício Wolff |              |
-| Validação da criação de conta   | _a definir_    |              |
+| Formulário de criação de conta              | Rafael Panzenhagen | ----sim----- |
+| Função de busca                             | _a definir_        | ----sim----- |
+| Implementação do banco de dados             | Fabrício Wolff     |              |
+| Validação da criação de conta               | _a definir_        |              |
