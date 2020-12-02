@@ -13,26 +13,16 @@
 ### Índice:
 
 - [1. Inovações e implementações pós 04/11/2020](#item1)
-
   - [1.1 Validação de dados com FireBase](#item11)
   - [1.2 Compartilhamento de filmes](#item12)
   - [1.3 Bottom Bar](#item13)
   - [1.4 Carrossel destaques](#item14)
   - [1.5 Acesso de filmes através das categorias](#item15)
   - [1.6 Atualização do banco de dados](#item16)
-
 - [2. Funcionalidades e implementações exigidas na entrega](#item2)
-
   - [2.1 Itens obrigatórios](#item21)
   - [2.2 Itens opcionais](#item22)
-  - [2.3 Detalhamento dos itens concluídos](#item23)
-
-  <!-- Item detalhamento: referenciar tudo para o relatório 1 -->
-
 - [3. Detalhamento do Aplicativo](#item3)
-
-  - [3.1 Informações do Relatório 1](#item31)
-
 - [4. Animações demonstrativas](#item4)
   - [4.1 Login no aplicativo](#item41)
   - [4.2 Compartilhamento externo de informações](#item42)
@@ -40,15 +30,77 @@
   - [4.4 Acesso a detalhes através das categorias](#item44)
 - [5. Telas do Aplicativo](#item5)
   - [5.1 Telas já desenvolvidas - Relatório 1](#item51)
-  - [5.2 Telas já desenvolvidas - Relatório 2](#item52)
-  - [5.3 Telas a serem desenvolvidas](#item53)
-- [6. Dificuldades encontradas](#item6)
-- [7. Tarefas previstas no Relatório 1](#item7)
-- [8. Tarefas previstas para a entrega final](#item8)
+  - [5.2 Telas a serem desenvolvidas](#item52)
+- [6. Tarefas previstas no Relatório 1](#item6)
+- [7. Tarefas previstas para a entrega final](#item7)
 
 ---
 
 ## <a name="item1"></a>1. Inovações e implementações pós 04/11/2020
+
+### <a name="item11"></a>1.1 Autenticação de login com FireBase
+
+Está sendo implementada a validação de usuário através do FireBase. Os métodos ainda estão passando por testes e serão incluídos no repositório até a entrega final.
+Para a autenticação, um objeto da classe FireBaseAuth é instanciado na Activity Login.
+
+Há uma pré-validação do preenchimento dos antes de se executar a validação do FireBase em si. Isso acontece através do seguinte método:
+
+```
+private fun signUpUser(){
+  if  (edtEmail!!.text.toString().isEmpty()){
+    edtEmail!!.error = "Por favor insira o e-mail"
+    edtEmail!!.requestFocus()
+    return
+  }
+
+  if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail!!.text.toString()).matches()){
+    edtEmail!!.error ?: "Por favor coloque um e-mail válido"
+    edtEmail!!.requestFocus()
+    return
+  }
+
+  if (edtPassword!!.text.toString().isEmpty()){
+    edtPassword!!.error = "Por favor insira o password"
+    edtPassword!!.requestFocus()
+    return
+  }
+
+  loginUser(email = edtEmail!!.text.toString(), password = edtPassword!!.text.toString())
+}
+```
+
+Como se pode notar, após as validações o método _loginUser_ é executado.
+Tal método executa a validação de login do FireBase:
+
+```
+class LoginFirebase : AppCompatActivity() {
+  ...
+  private var mAuth: FirebaseAuth? = null
+  ...
+  }
+  ...
+  private fun loginUser(email: String, password: String) {
+    mAuth!!.createUserWithEmailAndPassword(email, password)
+      .addOnCompleteListener(this) { task ->
+        if (task.isSuccessful) {
+          // Sign in success, update UI with the signed-in user's information
+          Log.d("TAG", "createUserWithEmail:success")
+          val user = mAuth!!.currentUser
+          Toast.makeText(applicationContext, "Login OK!", Toast.LENGTH_SHORT).show()
+          openHomeActivity()
+        } else {
+          // If sign in fails, display a message to the user.
+          Log.w("TAG", "createUserWithEmail:failure", task.exception)
+          Toast.makeText(applicationContext, "Authentication failed.",
+          Toast.LENGTH_SHORT).show()
+        }
+    }
+  }
+  ...
+}
+```
+
+_AVISO: Os métodos apresentados ainda não estão presentes neste repositório. Serão integrados até a entrega final._
 
 ### <a name="item12"></a>1.2 Bottom bar
 
@@ -135,6 +187,39 @@ private fun observeCarouselMovies(){
 
 ### <a name="item15"></a>1.5 Acesso de filmes através de categorias
 
+A implementação da funcionalidade foi iniciada pelo método de acesso às categorias de filmes (retornadas por consulta à API) na HomeActivity.
+Segue o método:
+
+```
+fun goToCategoryFilmsList(categoryId: Int) {
+  supportFragmentManager
+    .beginTransaction()
+    .replace(R.id.home_container, CategoryFilmsFragment.newInstance(categoryId), "categoryFilmsFragment")
+    .addToBackStack(null)
+    .commit()
+}
+```
+
+Na aplicação, a categoria de filmes como funcionalidade é dividida em três compomentes:
+
+- [CategoryFilmsAdapter](src/main/java/com/dispositivosmoveis/ritterflix/ui/CategoryFilms/CategoryFilmsAdapter.kt)
+- [CategoryFilmsFragment](src/main/java/com/dispositivosmoveis/ritterflix/ui/CategoryFilms/CategoryFilmsFragment.kt)
+- [CategoryFilmsViewModel](src/main/java/com/dispositivosmoveis/ritterflix/ui/CategoryFilms/CategoryFilmsFragment.kt)
+
+O método responsável pelo acesso ao detalhe dos filmes dentro das categorias é o seguinte:
+
+```
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+  when (item.itemId) {
+    android.R.id.home -> activity?.onBackPressed()
+  }
+
+  return super.onOptionsItemSelected(item)
+}
+```
+
+É possível ver uma demonstração do acesso aos filmes através das categorias [aqui](#item44).
+
 ### <a name="item16"></a>1.6 Atualização do banco de dados
 
 <img src="/app/src/main/res/drawable/bd-atualizado.png">
@@ -147,7 +232,7 @@ private fun observeCarouselMovies(){
 - [x] Fazer algum tipo de persistência de informação
 - [x] Usar databinding
 - [x] Fazer envio de informações exernamente na forma de link
-- [ ] Fazer envio externamente de imagem
+- [x] Fazer envio externamente de imagem
 - [x] Receber e tratar informações através de link
 - [ ] Fazer uso de algum sensor
 
@@ -159,34 +244,39 @@ private fun observeCarouselMovies(){
 - [ ] Capacidade de navegação entre filmes direto da tela de detalhe
 - [ ] Apresentar uma mini-lista dos filmes da categoria na tela de detalhe do filme
 
-### <a name="item23"></a>2.3 Detalhamento dos itens concluídos
-
 ---
 
 ## <a name="item3"></a>3. Detalhamento do aplicativo:
 
-### <a name="item31"></a>3.1 Informações do Relatório 1:
+As seguintes informações constam no [Relatório 1](/Relatorio1.md):
 
-As seguintes informações constam no relatório 1:
-
-- [Tecnologias utilizaddas na aplicação]
-- [Arquitetura MVVM]
-- [Conexão com a API]
-- [Componentes]
-- [Banco de dados (atualizado neste relatório)]
+- Tecnologias utilizaddas na aplicação
+- Arquitetura MVVM
+- Conexão com a API
+- Componentes
+- Banco de dados (atualizado neste relatório)
 
 ---
 
-## <a name="item4"></a>4. Animações Demonstartivas
+## <a name="item4"></a>4. Animações Demonstrativas
 
-- [4.1 Login no aplicativo](#item41)
+### <a name="#item41"></a>4.1 Login no aplicativo
 
-- [4.2 Compartilhamento externo de informações](#item42)
-- [4.3 Acesso a informações compartilhadas externamente](#item43)  
-  <img src="/app/src/main/res/drawable/acesso-info-externa.gif">
+  <img src="/app/src/main/res/drawable/login.gif" height="500" width="250">
 
-- [4.4 Acesso a detalhes através das categorias](#item44)  
-  <img src="/app/src/main/res/drawable/acesso-categoria-detalhe.gif">
+### <a name="#item42"></a>4.2 Compartilhamento externo de informações
+
+  <img src="/app/src/main/res/drawable/compartilhar-externo.gif" height="500" width="250">
+
+### <a name="#item43"></a>4.3 Acesso a informações compartilhadas externamente
+
+  <img src="/app/src/main/res/drawable/acesso-info-externa.gif" height="500" width="250">
+
+### <a name="#item44"></a>4.4 Acesso a detalhes através das categorias
+
+  <img src="/app/src/main/res/drawable/acesso-categoria-detalhe.gif" height="500" width="250">
+
+---
 
 ## <a name="item5"></a>5. Telas do aplicativo:
 
@@ -201,16 +291,10 @@ As seguintes informações constam no relatório 1:
 - <a name="item314"></a>Tela de detalhe do filme  
   <img src="/app/src/main/res/drawable/movie_detail.png" height="500" width="250">
 
-### <a name="item52"></a>5.2 Telas já desenvolvidas - Relatório 2:
-
-### <a name="item52"></a>4.2 Telas a serem desenvolvidas:
+### <a name="item52"></a>5.2 Telas a serem desenvolvidas:
 
 - Tela de cadastro de conta
 - Tela resultados de busca
-
----
-
-## <a name="item4"></a>4. Dificuldades encontradas:
 
 ---
 
