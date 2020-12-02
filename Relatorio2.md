@@ -202,11 +202,11 @@ fun goToCategoryFilmsList(categoryId: Int) {
 
 Na aplicação, a categoria de filmes como funcionalidade é dividida em três compomentes:
 
-- [CategoryFilmsAdapter](src/main/java/com/dispositivosmoveis/ritterflix/ui/CategoryFilms/CategoryFilmsAdapter.kt)
-- [CategoryFilmsFragment](src/main/java/com/dispositivosmoveis/ritterflix/ui/CategoryFilms/CategoryFilmsFragment.kt)
-- [CategoryFilmsViewModel](src/main/java/com/dispositivosmoveis/ritterflix/ui/CategoryFilms/CategoryFilmsFragment.kt)
+- [CategoryFilmsAdapter](src/main/java/com/dispositivosmoveis/ritterflix/ui/ctegoryFilms/CategoryFilmsAdapter.kt)
+- [CategoryFilmsFragment](src/main/java/com/dispositivosmoveis/ritterflix/ui/categoryFilms/CategoryFilmsFragment.kt)
+- [CategoryFilmsViewModel](src/main/java/com/dispositivosmoveis/ritterflix/ui/categoryFilms/CategoryFilmsViewModel.kt)
 
-O método responsável pelo acesso ao detalhe dos filmes dentro das categorias é o seguinte:
+O método responsável pelo acesso ao detalhe dos filmes dentro das categorias se encontra no componente Fragment e é o seguinte:
 
 ```
 override fun onOptionsItemSelected(item: MenuItem): Boolean {
