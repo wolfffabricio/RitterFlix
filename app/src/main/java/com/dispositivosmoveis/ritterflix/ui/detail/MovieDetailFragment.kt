@@ -1,15 +1,30 @@
 package com.dispositivosmoveis.ritterflix.ui.detail
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.databinding.FragmentMovieDetailBinding
-import com.dispositivosmoveis.ritterflix.extensions.shareContentWithText
+import com.dispositivosmoveis.ritterflix.extensions.shareContentWithImage
+import com.dispositivosmoveis.ritterflix.repository.http.BASE_POST_URL
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Picasso.LoadedFrom
+import com.squareup.picasso.Target
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+
 
 class MovieDetailFragment : Fragment() {
 
@@ -64,10 +79,42 @@ class MovieDetailFragment : Fragment() {
     private fun shareMovie() {
         viewModel.movie.value.let {
             if (it != null) {
-                val shareContent = "filmes.uniritter.edu.br/filme?id=" + it.id + "&de=Jean"
-                shareContentWithText(text = shareContent)
+                val shareContent = "Olha que massa esse filme! Confira agora no RitterFlix.\n\n filmes.uniritter.edu.br/filme?id=" + it.id + "&de=Jean"
+
+                Picasso.get()
+                    .load(BASE_POST_URL + it.posterPath)
+                    .into(object : Target {
+                        override fun onBitmapLoaded(bitmap: Bitmap, from: LoadedFrom) {
+                            getLocalBitmapUri(bitmap, activity?.applicationContext!!)?.let { it1 ->
+                                shareContentWithImage(it1, shareContent)
+                            }
+                        }
+
+                        override fun onPrepareLoad(placeHolderDrawable: Drawable) {}
+
+                        override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
+                            Log.e("Bitmap Failed: ", e.toString())
+                        }
+                    })
             }
         }
+    }
+
+    fun getLocalBitmapUri(bmp: Bitmap, context: Context): Uri? {
+        var bmpUri: Uri? = null
+        try {
+            val file = File(
+                context.getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+                "share_image_" + System.currentTimeMillis() + ".png"
+            )
+            val out = FileOutputStream(file)
+            bmp.compress(Bitmap.CompressFormat.PNG, 90, out)
+            out.close()
+            bmpUri = FileProvider.getUriForFile(context, context.packageName +".fileprovider", file)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return bmpUri
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
