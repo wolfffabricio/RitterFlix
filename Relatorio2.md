@@ -36,6 +36,15 @@
 
 ---
 
+### Histórico de diário de bordo
+
+- [Setembro](/diario-de-bordo/diario-grupo-set-2020.pdf)
+- [Outubro](/diario-de-bordo/diario-grupo-out-2020.pdf)
+- [Novembro](/diario-de-bordo/diario-grupo-nov-2020.pdf)
+- [Dezembro](/diario-de-bordo/diario-grupo-dez-2020.pdf)
+
+---
+
 ## <a name="item1"></a>1. Inovações e implementações pós 04/11/2020
 
 ### <a name="item11"></a>1.1 Autenticação de login com FireBase
