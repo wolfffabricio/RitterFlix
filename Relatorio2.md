@@ -14,8 +14,8 @@
 
 - [1. Inovações e implementações pós 04/11/2020](#item1)
   - [1.1 Validação de dados com FireBase](#item11)
-  - [1.2 Compartilhamento de filmes](#item12)
-  - [1.3 Bottom Bar](#item13)
+  - [1.2 Bottom Bar](#item12)
+  - [1.3 Compartilhamento de filmes](#item13)
   - [1.4 Carrossel destaques](#item14)
   - [1.5 Acesso de filmes através das categorias](#item15)
   - [1.6 Atualização do banco de dados](#item16)
@@ -224,6 +224,8 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
 <img src="/app/src/main/res/drawable/bd-atualizado.png">
 
+---
+
 ## <a name="item2"></a>2. Funcionalidades do aplicativo:
 
 ### <a name="item21"></a>2.1 Itens obrigatórios
@@ -260,19 +262,19 @@ As seguintes informações constam no [Relatório 1](/Relatorio1.md):
 
 ## <a name="item4"></a>4. Animações Demonstrativas
 
-### <a name="#item41"></a>4.1 Login no aplicativo
+### <a name="item41"></a>4.1 Login no aplicativo
 
   <img src="/app/src/main/res/drawable/login.gif" height="500" width="250">
 
-### <a name="#item42"></a>4.2 Compartilhamento externo de informações
+### <a name="item42"></a>4.2 Compartilhamento externo de informações
 
   <img src="/app/src/main/res/drawable/compartilhar-externo.gif" height="500" width="250">
 
-### <a name="#item43"></a>4.3 Acesso a informações compartilhadas externamente
+### <a name="item43"></a>4.3 Acesso a informações compartilhadas externamente
 
   <img src="/app/src/main/res/drawable/acesso-info-externa.gif" height="500" width="250">
 
-### <a name="#item44"></a>4.4 Acesso a detalhes através das categorias
+### <a name="item44"></a>4.4 Acesso a detalhes através das categorias
 
   <img src="/app/src/main/res/drawable/acesso-categoria-detalhe.gif" height="500" width="250">
 
@@ -298,38 +300,46 @@ As seguintes informações constam no [Relatório 1](/Relatorio1.md):
 
 ---
 
-## <a name="item5"></a>5. Tarefas previstas na entrega Relatório 1:
+## <a name="item6"></a>6. Tarefas previstas na entrega Relatório 1:
 
 | Tarefa                                      | Responsável        | Desenvolvido   |
 | ------------------------------------------- | ------------------ | -------------- |
 | Componente "bottom bar"                     | Filipe Drago       | -----sim------ |
 | Função de logout                            | Lucas Rambo        |                |
-| Atualização do modelo do banco de dados     | Márcio Alves       | ----sim-----   |
+| Atualização do modelo do banco de dados     | Márcio Alves       | -----sim------ |
 | Criação do ícone do aplicativo              | Rafael Panzenhagen |                |
-| Botão "assistir trailer no _YouTube_"       | Márcio Alves       | ----sim-----   |
-| Botão "compartilhar filme"                  | Fabrício Wolff     | ----sim-----   |
+| Botão "assistir trailer no _YouTube_"       | Márcio Alves       | -----sim------ |
+| Botão "compartilhar filme"                  | Fabrício Wolff     | -----sim------ |
 | Listar filmes a partir do botão "categoria" | Fabrício Wolff     |                |
 | Validação de login com _FireBase_           | Fabrício Wolff     |                |
-| Formulário de criação de conta              | Rafael Panzenhagen | ----sim-----   |
-| Função de busca                             | _a definir_        | ----sim-----   |
+| Formulário de criação de conta              | Rafael Panzenhagen | -----sim------ |
+| Função de busca                             | _a definir_        | -----sim------ |
 | Implementação do banco de dados             | Fabrício Wolff     |                |
 | Validação da criação de conta               | _a definir_        |                |
 
 ---
 
-## <a name="item6"></a>6. Tarefas previstas para a entrega final:
+## <a name="item7"></a>7. Tarefas previstas para a entrega final:
 
-| Tarefa                                      | Responsável        | Prioridade     |
-| ------------------------------------------- | ------------------ | -------------- |
-| Componente "bottom bar"                     | Filipe Drago       | -----sim------ |
-| Função de logout                            | Lucas Rambo        |                |
-| Atualização do modelo do banco de dados     | Márcio Alves       | ----sim-----   |
-| Criação do ícone do aplicativo              | Rafael Panzenhagen |                |
-| Botão "assistir trailer no _YouTube_"       | Márcio Alves       | ----sim-----   |
-| Botão "compartilhar filme"                  | Fabrício Wolff     | ----sim-----   |
-| Listar filmes a partir do botão "categoria" | Fabrício Wolff     |                |
-| Validação de login com _FireBase_           | Fabrício Wolff     |                |
-| Formulário de criação de conta              | Rafael Panzenhagen | ----sim-----   |
-| Função de busca                             | _a definir_        | ----sim-----   |
-| Implementação do banco de dados             | Fabrício Wolff     |                |
-| Validação da criação de conta               | _a definir_        |                |
+| Tarefa                                                 | Responsável        | Prioridade |
+| ------------------------------------------------------ | ------------------ | ---------- |
+| Função de logout\*                                     | Filipe Drago       | 3          |
+| Implementar uso de biometria                           | _a definir_        | 2          |
+| Implementar comentários e avaliações dos filmes        | Fabrício Wolff     | 2          |
+| Apresentar filmes de mesma categoria dentro do detalhe | Fabrício Wolff     | 2          |
+| Implementar categoria favoritos                        | _a definir_        | 2          |
+| Função "favoritar filmes"                              | _a definir_        | 2          |
+| Botão "assistir trailer no _YouTube_"                  | Márcio Alves       | 2          |
+| Função de busca\*                                      | Filipe Drago       | 3          |
+| Validação de login com _FireBase_\*                    | Filipe Drago       | 3          |
+| Formulário de criação de conta\*                       | Rafael Panzenhagen | 1          |
+| Validação da criação de conta                          | _a definir_        | 1          |
+| Criação do ícone do aplicativo                         | Rafael Panzenhagen | 1          |
+
+\* Funções semi-implementadas ou dependendo de testes
+
+Legenda de prioriodades:
+
+- 1: baixa prioridade
+- 2: média prioridade
+- 3: alta prioridade
