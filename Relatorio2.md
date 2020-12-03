@@ -277,15 +277,15 @@ As seguintes informações constam no [Relatório 1](/Relatorio1.md):
 
 ### <a name="item42"></a>4.2 Compartilhamento externo de informações
 
-  <img src="/app/src/main/res/drawable/compartilhar-externo.gif" height="500" width="250">
+  <img src="/app/src/main/res/drawable/compartilhar_externo.gif" height="500" width="250">
 
 ### <a name="item43"></a>4.3 Acesso a informações compartilhadas externamente
 
-  <img src="/app/src/main/res/drawable/acesso-info-externa.gif" height="500" width="250">
+  <img src="/app/src/main/res/drawable/acesso_info_externa.gif" height="500" width="250">
 
 ### <a name="item44"></a>4.4 Acesso a detalhes através das categorias
 
-  <img src="/app/src/main/res/drawable/acesso-categoria-detalhe.gif" height="500" width="250">
+  <img src="/app/src/main/res/drawable/acesso_categoria_detalhe.gif" height="500" width="250">
 
 ---
 
