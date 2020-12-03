@@ -231,7 +231,7 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
 ### <a name="item16"></a>1.6 Atualização do banco de dados
 
-<img src="/app/src/main/res/drawable/bd-atualizado.png">
+<img src="/app/src/main/res/drawable/bd_atualizado.png">
 
 ---
 
