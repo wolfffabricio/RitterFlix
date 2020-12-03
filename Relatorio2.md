@@ -273,7 +273,7 @@ As seguintes informações constam no [Relatório 1](/Relatorio1.md):
 
 ### <a name="item41"></a>4.1 Login no aplicativo
 
-  <img src="/app/src/main/res/drawable/login.gif" height="500" width="250">
+  <img src="/app/src/main/res/drawable/login_gif.gif" height="500" width="250">
 
 ### <a name="item42"></a>4.2 Compartilhamento externo de informações
 
