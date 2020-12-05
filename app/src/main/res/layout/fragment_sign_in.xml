@@ -34,24 +34,24 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nome_outlined_edit_text"
+        android:id="@+id/email_edit_text"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signin_title"
+        android:layout_below="@+id/signin_title"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="126dp"
         android:layout_marginRight="16dp"
-        android:hint="Nome"
+        android:hint="E-mail"
         android:textColorHint="@color/colorSilverChalice"
         app:boxStrokeColor="@color/colorSilverChalice"
         app:boxStrokeWidth="2dp"
         app:hintTextColor="@color/colorSilverChalice"
-        app:placeholderText="Nome"
+        app:placeholderText="E-mail"
         app:placeholderTextColor="@color/colorSilverChalice">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_nome"
+            android:id="@+id/et_mailSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -61,41 +61,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/sobrenome_outlined_edit_text"
+        android:id="@+id/password_edit_text"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nome_outlined_edit_text"
+        android:layout_below="@id/email_edit_text"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="44dp"
         android:layout_marginRight="16dp"
-        android:hint="Sobrenome"
-        android:textColorHint="@color/colorSilverChalice"
-        app:boxStrokeColor="@color/colorSilverChalice"
-        app:boxStrokeWidth="2dp"
-        app:hintTextColor="@color/colorSilverChalice"
-        app:placeholderText="Sobrenome"
-        app:placeholderTextColor="@color/colorSilverChalice">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_sobrenome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/colorSilverChalice"
-            android:textCursorDrawable="@null" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_outlined_edit_text"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sobrenome_outlined_edit_text"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginRight="16dp"
+        android:inputType="textPassword"
         android:hint="@string/password"
         android:textColorHint="@color/colorSilverChalice"
         app:boxStrokeColor="@color/colorSilverChalice"
@@ -107,7 +81,7 @@
         app:placeholderTextColor="@color/colorSilverChalice">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_password_criar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -115,6 +89,20 @@
             android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/criar_conta_btn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password_edit_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="48dp"
+        android:layout_weight="1"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="Criar Conta"
+        app:cornerRadius="28dp" />
 
 
 </RelativeLayout>
