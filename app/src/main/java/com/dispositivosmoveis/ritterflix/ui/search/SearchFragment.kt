@@ -41,7 +41,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).setSupportActionBar(toolbar_search)
-        showPlaceholder(true, "Pesquise pelo seu filme\n favorito aqui! ;)")
+        showPlaceholder(true, getString(R.string.search_here))
     }
 
     private fun searchMovie(value: String) {
@@ -54,7 +54,7 @@ class SearchFragment : Fragment() {
                 setupMoviesAdapter(it.results)
                 showPlaceholder(false)
             } else {
-                showPlaceholder(true, "Resultado não encontrado :(")
+                showPlaceholder(true, getString(R.string.result_not_found))
             }
         })
     }

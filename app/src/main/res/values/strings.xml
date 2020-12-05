@@ -28,4 +28,7 @@
     <string name="more">Mais</string>
     <string name="home">Home</string>
     <string name="search">Pesquisar</string>
+    <string name="feature_unavailable">Recurso indisponível\n no momento.</string>
+    <string name="search_here">Pesquise pelo seu filme\n favorito aqui! ;)</string>
+    <string name="result_not_found">Resultado não encontrado :(</string>
 </resources>
