@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.ui.home.HomeActivity
+import com.dispositivosmoveis.ritterflix.ui.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
@@ -36,6 +37,10 @@ class SignInFragment : Fragment() {
         criar_conta_btn!!.setOnClickListener {
             signUpUser()
         }
+        login_back_btn!!.setOnClickListener{
+            backLogin()
+        }
+
     }
 
     private fun signUpUser() {
@@ -85,4 +90,9 @@ class SignInFragment : Fragment() {
         startActivity(intent)
     }
 
+    private fun backLogin() {
+        val intent = Intent(context, LoginActivity::class.java)
+        activity?.finish()
+        startActivity(intent)
+    }
 }
