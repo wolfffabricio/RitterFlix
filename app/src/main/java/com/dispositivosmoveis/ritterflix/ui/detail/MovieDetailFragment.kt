@@ -3,13 +3,20 @@ package com.dispositivosmoveis.ritterflix.ui.detail
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.text.Layout
 import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.dispositivosmoveis.ritterflix.R
@@ -24,12 +31,15 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import androidx.core.content.ContextCompat.getSystemService as contextCompatGetSystemService
 
 
-class MovieDetailFragment : Fragment() {
+class MovieDetailFragment : Fragment(), SensorEventListener{
 
     private val viewModel: MovieDetailViewModel by viewModel()
     private var binding: FragmentMovieDetailBinding? = null
+    private lateinit var sensorManager : SensorManager
+    private var sensor: Sensor? = null
 
     companion object {
         private const val MOVIE_ID = "movie_id"
@@ -46,6 +56,9 @@ class MovieDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
     }
 
     override fun onCreateView(
@@ -127,5 +140,34 @@ class MovieDetailFragment : Fragment() {
             R.id.share_action -> shareMovie()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event != null) {
+            val thisLayout = R.id.fragment_moviedetail as NestedScrollView
+            val colorNight = context?.let { ContextCompat.getColor(it, R.color.colorNight) }
+            val colorDay = context?.let { ContextCompat.getColor(it, R.color.colorAccent)}
+
+            if(event.sensor.type == Sensor.TYPE_LIGHT)
+            {
+                if (event.values[0] <= 1000.0f) {
+                    if (colorNight != null) {
+                        thisLayout.setBackgroundResource(colorNight)
+                    }
+                    //do something
+                } else {
+                    if (event.values[0] <= 1000.0f) {
+                        if (colorDay != null) {
+                            thisLayout.setBackgroundResource(colorDay)
+                        }
+                        //do something else
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        TODO("Not yet implemented")
     }
 }
