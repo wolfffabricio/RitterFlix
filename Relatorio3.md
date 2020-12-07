@@ -1,6 +1,6 @@
 # Aplicativo RitterFlix
 
-# Relatório de entrega N2 - 07/12/2020
+# Relatório de entrega Final N2 - 07/12/2020
 
 ###### Grupo:
 
