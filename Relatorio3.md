@@ -16,10 +16,7 @@
 
   - [1.1 Validação de dados com FireBase](#item11)
   - [1.2 Ajustes no Compartilhamento de filmes](#item12)
-  - [1.3 Bottom Bar](#item13)
-  - [1.4 Carrossel destaques](#item14)
-  - [1.5 Acesso de filmes através das categorias](#item15)
-  - [1.6 Atualização do banco de dados](#item16)
+  - [1.3 Pesquisa de Filmes](#item13)
 
 - [2. Funcionalidades e implementações exigidas na entrega](#item2)
 
@@ -50,26 +47,15 @@
 
 ## <a name="item1"></a>1. Inovações e implementações pós 04/11/2020
 
-### <a name="item12"></a>1.2 Bottom bar
+### <a name="item11"></a>1.1 Login com Firebase
 
-A bottom bar possui três botões: Home, Search e More. O botão Home direciona para a tela inicial do aplicativo, o botão Search abre a tela de pesquisa e o botão More abre um menu inicial. Funcionalidades Search e More ainda não foram implementadas.  
-A bottom bra é inflada dentro dos layouts através do seguinte método:
+Implementamos o Login utilizando Firebase, a fim de disponibilizar uma facilidade de acesso à aplicação.
+Este desenvolvimento trouxe alguma complexidade devido as alterações na estrutura da interface de Login e também no código propriamente.
 
-```
-bottom_navigation.setOnNavigationItemSelectedListener{
-  when (it.itemId){
-    R.id.ic_home_nav -> makeCurrentFragment(homeFragment)
-    R.id.ic_search_nav -> makeCurrentFragment(searchFragment)
-    R.id.ic_more_nav -> makeCurrentFragment(moreFragment)
-  }
-  true
-}
-```
 
-### <a name="item13"></a>1.3 Compartilhamento externo de filmes
+### <a name="item12"></a>1.2 Compartilhamento de Filmes
 
-O compartilhamento de filmes permite escolher qual Activity (e, consequentemente, qual aplicação) no dispositivo será utilizada para fazê-lo.
-O compartilhamento é realizado pelo seguinte método:
+Aprimoramos o compartilhamento de filmes, a fim de gerar maior facilidade e tornar a aplicação mais próxima da realidade do usuário, assim tornando possível compartilhar filmes pelo do uso de outros aprlicativos. Assim, escolhendo a Activity (e com isso a aplicação), que a aplicação irá utilizar para fazer o compartilhamento.
 
 ```
 private fun shareMovie() {
@@ -95,11 +81,13 @@ private fun shareMovie() {
     }
   }
 }
+
+
 ```
 
-O método envia uma string com uma mensagem, concatenando a URL prevista em aula e o id do filme compartilhado.
+Concatena a URL bem como o ID do Filme a ser compartilhado, desta forma o método envia uma string com uma mensagem.
 
-Da mesma forma, há um intent filter na Activity Home, no Android Manifest, para receber a mesma URL. Desta forma, o aplicativo também consegue tratar o recebimento de informações compartilhadas.
+Para receber compartilhamentos implementamos um intent filter na Activity Home, no Android Manifest, o qual recebe a mesma URL e consegue tratá-las.
 
 ```
 <intent-filter>
@@ -110,34 +98,12 @@ Da mesma forma, há um intent filter na Activity Home, no Android Manifest, para
 </intent-filter>
 ```
 
-Os GIFs demonstrando o funcinamento do compartilhamento e do recebimento de informações foram apresentados [aqui](#item42) e [aqui](#item43).
+Abaixo os GIFs que demonstram o funcinamento do recebimento e compartilhamento de informações [aqui](#item42) e [aqui](#item43).
 
-### <a name="item14"></a>1.4 Carrossel destaques
+### <a name="item11"></a>1.3 Implementação Pesquisa por Filmes
 
-O carrossel é apresentado dentro da Activity Home e inflado por método na HomeFragment. Ele é um layout horizontal inserido no layout home. No momento, os filmes apresentados no carrossel são uma lista estática presente no próprio método.
-O seguinte método ativa o carrossel:
+Implementada a Pesquisa por Filmes desntro da Aplicação. Permite realizar as buscas, emite mensagem quando não localiza o filme, e apresenta o filme caso ele seja localizado.
 
-```
-private fun observeCarouselMovies(){
-  val imgs:IntArray = intArrayOf(
-    R.drawable.pantera_negra,
-    R.drawable.spider_man_far_from_home,
-    R.drawable.aquaman,
-    R.drawable.jurassic_world
-  )
-
-  carousel_view.setImageListener{position, imageView ->
-    imageView.setImageResource(imgs[position])
-  }
-  carousel_view.pageCount = imgs.size
-}
-```
-
-### <a name="item15"></a>1.5 Acesso de filmes através de categorias
-
-### <a name="item16"></a>1.6 Atualização do banco de dados
-
-<img src="/app/src/main/res/drawable/bd-atualizado.png">
 
 ## <a name="item2"></a>2. Funcionalidades do aplicativo:
 
