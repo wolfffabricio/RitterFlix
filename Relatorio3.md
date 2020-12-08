@@ -29,7 +29,6 @@
   <!-- Item detalhamento: referenciar tudo para o relatório 1 -->
 
 - [3. Detalhamento do Aplicativo](#item3)
-
   - [3.1 Informações do Relatório 1](#item31)
   - [3.2 Informações do Relatório 2](#item32)
 
@@ -38,12 +37,15 @@
   - [4.2 Compartilhamento externo de informações](#item42)
   - [4.3 Acesso a informações compartilhadas externamente](#item43)
   - [4.4 Acesso a detalhes através das categorias](#item44)
+  
 - [5. Telas do Aplicativo](#item5)
   - [5.1 Telas já desenvolvidas - Relatório 1](#item51)
   - [5.2 Telas já desenvolvidas - Relatório 2 e 3](#item52)
-  - [5.3 Funcionalidades no Backlog do time](#item53)
+
 - [6. Tarefas implementadas na entrega do Relatório 1](#item6)
+
 - [7. Status das tarefas na entrega do Relatório 2](#item7)
+
 - [8. Tarefas implementadas para a entrega final](#item8)
 
 ---
@@ -291,6 +293,7 @@ As seguintes informações constam no relatório 1:
 ### <a name="item32"></a>3.2 Informações do Relatório 2:
 
 O Relatório 3, apresenta todas as informações do Relatório 2, complementando as evoluções dos desenvolvimentos do time.
+Além da atividade de Busca/Pesquisa, solicitada adicionalmente em nossa última agenda.
 
 ---
 
@@ -327,10 +330,19 @@ O Relatório 3, apresenta todas as informações do Relatório 2, complementando
 - <a name="item514"></a>Tela de detalhe do filme  
   <img src="/app/src/main/res/drawable/movie_detail.png" height="500" width="250">
 
-### <a name="item53"></a>5.3 Itens no Backlog do time:
+### <a name="item52"></a>5.2 Telas desenvolvidas - Relatórios 2 e 3:
 
-- Tela de cadastro de conta
-- Tela resultados de busca
+- <a name="item521"></a>Tela de login com Firebase
+  <img src="/app/src/main/res/drawable/login.jpeg" height="500" width="250">
+- <a name="item522"></a>Tela de Busca/Pesquisa  
+  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
+- <a name="item523"></a>Assistir Trailer do filme  
+  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
+- <a name="item524"></a>Criação de conta 
+  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
+- <a name="item525"></a>Implementação Logout 
+  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
+
 
 ---
 
