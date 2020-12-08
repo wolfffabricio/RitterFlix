@@ -39,8 +39,8 @@
   - [4.4 Acesso a detalhes através das categorias](#item44)
   
 - [5. Telas do Aplicativo](#item5)
-  - [5.1 Telas já desenvolvidas - Relatório 1](#item51)
-  - [5.2 Telas já desenvolvidas - Relatório 2 e 3](#item52)
+  - [5.1 Telas desenvolvidas - Relatório 1](#item51)
+  - [5.2 Telas desenvolvidas - Relatório 2 e 3](#item52)
 
 - [6. Tarefas implementadas na entrega do Relatório 1](#item6)
 
@@ -319,7 +319,7 @@ Além da atividade de Busca/Pesquisa, solicitada adicionalmente em nossa última
 
 ## <a name="item5"></a>5. Telas do aplicativo:
 
-### <a name="item51"></a>5.1 Telas já desenvolvidas - Relatório 1:
+### <a name="item51"></a>5.1 Telas desenvolvidas - Relatório 1:
 
 - <a name="item511"></a>Splash screen  
   <img src="/app/src/main/res/drawable/splash_screen.png" height="500" width="250">
