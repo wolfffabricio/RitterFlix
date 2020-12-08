@@ -25,7 +25,6 @@
 
   - [2.1 Itens obrigatórios](#item21)
   - [2.2 Itens opcionais](#item22)
-  - [2.3 Detalhamento dos itens concluídos](#item23)
 
   <!-- Item detalhamento: referenciar tudo para o relatório 1 -->
 
@@ -42,10 +41,10 @@
 - [5. Telas do Aplicativo](#item5)
   - [5.1 Telas já desenvolvidas - Relatório 1](#item51)
   - [5.2 Telas já desenvolvidas - Relatório 2 e 3](#item52)
-  - [5.3 Telas a serem desenvolvidas](#item53)
-- [6. Dificuldades encontradas](#item6)
-- [7. Tarefas previstas no Relatório 1](#item7)
-- [8. Tarefas previstas para a entrega final](#item8)
+  - [5.3 Funcionalidades no Backlog do time](#item53)
+- [6. Tarefas implementadas na entrega do Relatório 1](#item6)
+- [7. Tarefas implementadas na entrega do Relatório 2](#item7)
+- [8. Tarefas implementadas para a entrega final](#item8)
 
 ---
 
@@ -270,8 +269,8 @@ Implementada a Pesquisa por Filmes desntro da Aplicação. Permite realizar as b
 - [ ] Favoritar filmes
 - [ ] Capacidade de navegação entre filmes direto da tela de detalhe
 - [ ] Apresentar uma mini-lista dos filmes da categoria na tela de detalhe do filme
-
-### <a name="item23"></a>2.3 Detalhamento dos itens concluídos
+- [x] Capacidade de pesquisar Filmes
+- [x] Utilizar FireBase para efetuar login no APP
 
 ---
 
@@ -319,25 +318,25 @@ O Relatório 3, apresenta todas as informações do Relatório 2, complementando
 
 ### <a name="item51"></a>5.1 Telas já desenvolvidas - Relatório 1:
 
-- <a name="item311"></a>Splash screen  
+- <a name="item511"></a>Splash screen  
   <img src="/app/src/main/res/drawable/splash_screen.png" height="500" width="250">
-- <a name="item312"></a>Tela de login  
+- <a name="item512"></a>Tela de login  
   <img src="/app/src/main/res/drawable/login.jpeg" height="500" width="250">
-- <a name="item313"></a>Tela principal  
+- <a name="item513"></a>Tela principal  
   <img src="/app/src/main/res/drawable/home.png" height="500" width="250">
-- <a name="item314"></a>Tela de detalhe do filme  
+- <a name="item514"></a>Tela de detalhe do filme  
   <img src="/app/src/main/res/drawable/movie_detail.png" height="500" width="250">
 
-### <a name="item52"></a>5.2 Telas a serem desenvolvidas:
+### <a name="item53"></a>5.3 Itens no Backlog do time:
 
 - Tela de cadastro de conta
 - Tela resultados de busca
 
 ---
 
-## <a name="item6"></a>6. Tarefas previstas na entrega Relatório 1:
+## <a name="item6"></a>6. Tarefas implementadas na entrega do Relatório 1:
 
-| Tarefa                                      | Responsável        | Desenvolvido   |
+| Tarefa                                      | Responsável        |  Desenvolvido  |
 | ------------------------------------------- | ------------------ | -------------- |
 | Componente "bottom bar"                     | Filipe Drago       | -----sim------ |
 | Função de logout                            | Lucas Rambo        |                |
@@ -354,7 +353,7 @@ O Relatório 3, apresenta todas as informações do Relatório 2, complementando
 
 ---
 
-## <a name="item7"></a>7. Tarefas previstas para a entrega final:
+## <a name="item7"></a>7. Tarefas implementadas na entrega do Relatório 2:
 
 | Tarefa                                                 | Responsável        | Prioridade |
 | ------------------------------------------------------ | ------------------ | ---------- |
@@ -378,3 +377,23 @@ Legenda de prioriodades:
 - 1: baixa prioridade
 - 2: média prioridade
 - 3: alta prioridade
+
+---
+
+## <a name="item8"></a>8. Tarefas implementadas para a entrega final:
+
+| Tarefa                                                 | Responsável        | Desenvolvido | Observações |
+| ------------------------------------------------------ | ------------------ | ------------ | ----------- |
+| Função de logout                                       | Filipe Drago       | -----sim---- |             |
+| Implementar uso de biometria                           | _a definir_        |              | Backlok     |
+| Implementar comentários e avaliações dos filmes        | _a definir_        |              | Backlok     |
+| Apresentar filmes de mesma categoria dentro do detalhe | _a definir_        |              | Backlok     |
+| Implementar categoria favoritos                        | _a definir_        |              | Backlok     |
+| Função "favoritar filmes"                              | _a definir_        |              | Backlok     |
+| Botão "assistir trailer no _YouTube_"                  | Márcio Alves       | -----sim---- |             |
+| Função de busca                                        | Fabricio Wolff     | -----sim---- |             |
+| Implementação de login com _FireBase_                  | Filipe / Márcio    | -----sim---- |             |
+| Formulário de criação de conta                         | Rafael Panzenhagen | -----sim---- |             |
+| Validação da criação de conta                          | Fabricio Wolff     | -----sim---- |             |
+| Criação do ícone do aplicativo                         | _a definir_        |              | Backlok     |
+
