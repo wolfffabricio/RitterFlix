@@ -37,7 +37,7 @@
   - [4.4 Acesso a detalhes através das categorias](#item44)
 - [5. Telas do Aplicativo](#item5)
   - [5.1 Telas já desenvolvidas - Relatório 1](#item51)
-  - [5.2 Telas já desenvolvidas - Relatório 2](#item52)
+  - [5.2 Telas já desenvolvidas - Relatório 2 e 3](#item52)
   - [5.3 Telas a serem desenvolvidas](#item53)
 - [6. Dificuldades encontradas](#item6)
 - [7. Tarefas previstas no Relatório 1](#item7)
@@ -201,17 +201,19 @@ As seguintes informações constam no relatório 1:
 
 ## <a name="item6"></a>6. Tarefas previstas para a entrega final:
 
-| Tarefa                                      | Responsável        | Prioridade     |
-| ------------------------------------------- | ------------------ | -------------- |
-| Componente "bottom bar"                     | Filipe Drago       | -----sim------ |
-| Função de logout                            | Lucas Rambo        |                |
-| Atualização do modelo do banco de dados     | Márcio Alves       | ----sim-----   |
-| Criação do ícone do aplicativo              | Rafael Panzenhagen |                |
-| Botão "assistir trailer no _YouTube_"       | Márcio Alves       | ----sim-----   |
-| Botão "compartilhar filme"                  | Fabrício Wolff     | ----sim-----   |
-| Listar filmes a partir do botão "categoria" | Fabrício Wolff     |                |
-| Validação de login com _FireBase_           | Fabrício Wolff     |                |
-| Formulário de criação de conta              | Rafael Panzenhagen | ----sim-----   |
-| Função de busca                             | _a definir_        | ----sim-----   |
-| Implementação do banco de dados             | Fabrício Wolff     |                |
-| Validação da criação de conta               | _a definir_        |                |
+| Tarefa                                      | Responsável        | Prioridade     |     Observação     |
+| ------------------------------------------- | ------------------ | -------------- | ------------------ |
+| Componente "bottom bar"                     | Filipe Drago       | -----sim------ |                    |
+| Função de login com _FireBase_              | Filipe / Márcio    | -----sim------ |                    |
+| Função de logout                            | Filipe / Márcio    | -----sim------ |                    |
+| Atualização do modelo do banco de dados     | Márcio Alves       | -----sim------ |                    |
+| Criação do ícone do aplicativo              | a definir          |                | Backlog do time    |
+| Botão "assistir trailer no _YouTube_"       | Márcio Alves       | ----sim-----   |                    |
+| Botão "compartilhar filme"                  | Fabrício Wolff     | ----sim-----   |                    |
+| Listar filmes a partir do botão "categoria" | Fabrício Wolff     |                |                    |
+| Validação de login com _FireBase_           | Fabrício Wolff     |                |                    |
+| Formulário de criação de conta              | Rafael Panzenhagen | ----sim-----   |                    |
+| Função de busca                             | Fabrício Wolff     | ----sim-----   |                    |
+| Implementação do banco de dados             | a definir          |                | Backlog do time    |
+| Validação da criação de conta               | Filipe Drago       |                |                    |
+| Implementação de Sensores                   | a definir          |                | Backlog do time    |
