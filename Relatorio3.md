@@ -43,7 +43,7 @@
   - [5.2 Telas já desenvolvidas - Relatório 2 e 3](#item52)
   - [5.3 Funcionalidades no Backlog do time](#item53)
 - [6. Tarefas implementadas na entrega do Relatório 1](#item6)
-- [7. Tarefas implementadas na entrega do Relatório 2](#item7)
+- [7. Status das tarefas na entrega do Relatório 2](#item7)
 - [8. Tarefas implementadas para a entrega final](#item8)
 
 ---
@@ -353,7 +353,7 @@ O Relatório 3, apresenta todas as informações do Relatório 2, complementando
 
 ---
 
-## <a name="item7"></a>7. Tarefas implementadas na entrega do Relatório 2:
+## <a name="item7"></a>7. Status das tarefas na entrega do Relatório 2:
 
 | Tarefa                                                 | Responsável        | Prioridade |
 | ------------------------------------------------------ | ------------------ | ---------- |
