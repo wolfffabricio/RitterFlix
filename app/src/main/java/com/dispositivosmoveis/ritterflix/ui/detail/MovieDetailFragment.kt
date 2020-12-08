@@ -3,13 +3,20 @@ package com.dispositivosmoveis.ritterflix.ui.detail
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.dispositivosmoveis.ritterflix.R
@@ -24,12 +31,14 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import androidx.core.content.ContextCompat.getSystemService as contextCompatGetSystemService
 
 
-class MovieDetailFragment : Fragment() {
+class MovieDetailFragment : Fragment(){
 
     private val viewModel: MovieDetailViewModel by viewModel()
     private var binding: FragmentMovieDetailBinding? = null
+
 
     companion object {
         private const val MOVIE_ID = "movie_id"
@@ -46,6 +55,7 @@ class MovieDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
     }
 
     override fun onCreateView(
@@ -128,4 +138,7 @@ class MovieDetailFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+
 }

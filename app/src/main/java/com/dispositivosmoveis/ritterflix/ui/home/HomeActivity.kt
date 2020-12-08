@@ -25,10 +25,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val homeFragment = HomeFragment()
-        val searchFragment =
-            SearchFragment()
-        val moreFragment =
-            MoreFragment()
+        val searchFragment = SearchFragment()
+        val moreFragment = MoreFragment()
 
         makeCurrentFragment(homeFragment)
 
