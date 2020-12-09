@@ -60,8 +60,8 @@ class SignInFragment : Fragment() {
             return
         }
         loginUser(
-            email = et_password_criar!!.text.toString(),
-            password = et_mailSignIn!!.text.toString()
+            email = et_mailSignIn!!.text.toString(),
+            password = et_password_criar!!.text.toString()
         )
     }
 
