@@ -12,14 +12,12 @@
 
 ### Índice:
 
-- [1. Inovações e implementações após 04/11/2020](#item1)
+- [1. Desenvolvimentos e Melhorias implementados após 02/12/2020](#item1)
   - [1.1 Validação de dados com FireBase](#item11)
-  - [1.2 Bottom Bar](#item12)
+  - [1.2 Novos usuários](#item12)
   - [1.3 Compartilhamento de filmes](#item13)
-  - [1.4 Carrossel destaques](#item14)
-  - [1.5 Acesso de filmes através das categorias](#item15)
-  - [1.6 Atualização do banco de dados](#item16)
-  - [1.7 Pesquisa de Filmes](#item17)
+  - [1.4 Assistir Trailer dos Filmes](#item14)
+  - [1.5 Pesquisa de Filmes](#item15)
 
 - [2. Funcionalidades e implementações exigidas na entrega](#item2)
 
@@ -30,13 +28,13 @@
 
 - [3. Detalhamento do Aplicativo](#item3)
   - [3.1 Informações do Relatório 1](#item31)
-  - [3.2 Informações do Relatório 2](#item32)
+  - [3.2 Informações do Relatório 2 e 3](#item32)
 
 - [4. Animações demonstrativas](#item4)
   - [4.1 Login no aplicativo](#item41)
   - [4.2 Compartilhamento externo de informações](#item42)
   - [4.3 Acesso a informações compartilhadas externamente](#item43)
-  - [4.4 Acesso a detalhes através das categorias](#item44)
+  - [4.4 Pesquisa de Filmes](#item44)
   
 - [5. Telas do Aplicativo](#item5)
   - [5.1 Telas desenvolvidas - Relatório 1](#item51)
@@ -63,10 +61,10 @@
 
 ### <a name="item11"></a>1.1 Autenticação de login com FireBase
 
-Está sendo implementada a validação de usuário através do FireBase. Os métodos ainda estão passando por testes e serão incluídos no repositório até a entrega final.
-Para a autenticação, um objeto da classe FireBaseAuth é instanciado na Activity Login.
+Finalizamos a implementação da validação de usuário através do FireBase. Os métodos foram testados, encontramos dificuldades nas volidações de usuário e senha.
+O merge entre as branchs de desenvolvimento foi realizado, trouxe algumas necessidades de adaptação, pois altera bastante a estrutura da aplicação.
 
-Há uma pré-validação do preenchimento dos antes de se executar a validação do FireBase em si. Isso acontece através do seguinte método:
+O método abaixo, apresenta uma pré-validação do preenchimento dos antes de se executar a validação do FireBase propriamente.
 
 ```
 private fun signUpUser(){
@@ -122,28 +120,98 @@ class LoginFirebase : AppCompatActivity() {
   ...
 }
 ```
+### <a name="item12"></a>1.2 Novos Usuários
 
-_AVISO: Os métodos apresentados ainda não estão presentes neste repositório. Serão integrados até a entrega final._
-
-### <a name="item12"></a>1.2 Bottom bar
-
-A bottom bar possui três botões: Home, Search e More. O botão Home direciona para a tela inicial do aplicativo, o botão Search abre a tela de pesquisa e o botão More abre um menu inicial. Funcionalidades Search e More ainda não foram implementadas.  
-A bottom bra é inflada dentro dos layouts através do seguinte método:
+Capacidade de registrar novos usuários com e-mail e senha, persistindo os dados.
 
 ```
-bottom_navigation.setOnNavigationItemSelectedListener{
-  when (it.itemId){
-    R.id.ic_home_nav -> makeCurrentFragment(homeFragment)
-    R.id.ic_search_nav -> makeCurrentFragment(searchFragment)
-    R.id.ic_more_nav -> makeCurrentFragment(moreFragment)
-  }
-  true
+class SignInFragment : Fragment() {
+
+    companion object {
+        fun newInstance() = SignInFragment()
+    }
+
+    private var mAuth: FirebaseAuth? = null
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_sign_in, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        mAuth = FirebaseAuth.getInstance()
+        criar_conta_btn!!.setOnClickListener {
+            signUpUser()
+        }
+        login_back_btn!!.setOnClickListener{
+            backLogin()
+        }
+
+    }
+
+    private fun signUpUser() {
+        if (et_mailSignIn!!.text.toString().isEmpty()) {
+            et_mailSignIn!!.error = "Por favor insira o e-mail"
+            et_mailSignIn!!.requestFocus()
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(et_mailSignIn!!.text.toString()).matches()) {
+            et_mailSignIn!!.error ?: "Por favor coloque um e-mail válido"
+            et_mailSignIn!!.requestFocus()
+            return
+        }
+        if (et_password_criar!!.text.toString().isEmpty()) {
+            et_password_criar!!.error = "Por favor insira o password"
+            et_password_criar!!.requestFocus()
+            return
+        }
+        loginUser(
+            email = et_mailSignIn!!.text.toString(),
+            password = et_password_criar!!.text.toString()
+        )
+    }
+
+    private fun loginUser(email: String, password: String) {
+        mAuth!!.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener() { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d("TAG", "createUserWithEmail:success")
+                    Toast.makeText(context, "Conta criada OK!", Toast.LENGTH_SHORT).show()
+                    openHomeActivity()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("TAG", "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        context, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+    }
+
+    private fun openHomeActivity() {
+        val intent = Intent(context, HomeActivity::class.java)
+        activity?.finish()
+        startActivity(intent)
+    }
+
+    private fun backLogin() {
+        val intent = Intent(context, LoginActivity::class.java)
+        activity?.finish()
+        startActivity(intent)
+    }
 }
+
 ```
 
 ### <a name="item13"></a>1.3 Compartilhamento externo de filmes
 
-O compartilhamento de filmes permite escolher qual Activity (e, consequentemente, qual aplicação) no dispositivo será utilizada para fazê-lo.
+Foram efetuados ajustes no compartilhamento de filmes permite escolher qual Activity (e, consequentemente, qual aplicação) no dispositivo será utilizada para fazê-lo.
 O compartilhamento é realizado pelo seguinte método:
 
 ```
@@ -187,67 +255,11 @@ Da mesma forma, há um intent filter na Activity Home, no Android Manifest, para
 
 Os GIFs demonstrando o funcinamento do compartilhamento e do recebimento de informações foram apresentados [aqui](#item42) e [aqui](#item43).
 
-### <a name="item14"></a>1.4 Carrossel destaques
+### <a name="item14"></a>1.4 Assistir Trailer dos Filmes
 
-O carrossel é apresentado dentro da Activity Home e inflado por método na HomeFragment. Ele é um layout horizontal inserido no layout home. No momento, os filmes apresentados no carrossel são uma lista estática presente no próprio método.
-O seguinte método ativa o carrossel:
+A partir dos detalhes de um determinado Filme, o usuário tem a possibilidade de assistir um trailer do respectivo Filme.
 
-```
-private fun observeCarouselMovies(){
-  val imgs:IntArray = intArrayOf(
-    R.drawable.pantera_negra,
-    R.drawable.spider_man_far_from_home,
-    R.drawable.aquaman,
-    R.drawable.jurassic_world
-  )
-
-  carousel_view.setImageListener{position, imageView ->
-    imageView.setImageResource(imgs[position])
-  }
-  carousel_view.pageCount = imgs.size
-}
-```
-
-### <a name="item15"></a>1.5 Acesso de filmes através de categorias
-
-A implementação da funcionalidade foi iniciada pelo método de acesso às categorias de filmes (retornadas por consulta à API) na HomeActivity.
-Segue o método:
-
-```
-fun goToCategoryFilmsList(categoryId: Int) {
-  supportFragmentManager
-    .beginTransaction()
-    .replace(R.id.home_container, CategoryFilmsFragment.newInstance(categoryId), "categoryFilmsFragment")
-    .addToBackStack(null)
-    .commit()
-}
-```
-
-Na aplicação, a categoria de filmes como funcionalidade é dividida em três compomentes:
-
-- [CategoryFilmsAdapter](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/categoryFilms/CategoryFilmsAdapter.kt)
-- [CategoryFilmsFragment](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/categoryFilms/CategoryFilmsFragment.kt)
-- [CategoryFilmsViewModel](/app/src/main/java/com/dispositivosmoveis/ritterflix/ui/categoryFilms/CategoryFilmsViewModel.kt)
-
-O método responsável pelo acesso ao detalhe dos filmes dentro das categorias se encontra no componente Fragment e é o seguinte:
-
-```
-override fun onOptionsItemSelected(item: MenuItem): Boolean {
-  when (item.itemId) {
-    android.R.id.home -> activity?.onBackPressed()
-  }
-
-  return super.onOptionsItemSelected(item)
-}
-```
-
-É possível ver uma demonstração do acesso aos filmes através das categorias [aqui](#item44).
-
-### <a name="item16"></a>1.6 Atualização do banco de dados
-
-<img src="/app/src/main/res/drawable/bd_atualizado.png">
-
-### <a name="item17"></a>1.7 Implementação Pesquisa por Filmes
+### <a name="item15"></a>1.5 Implementação Pesquisa por Filmes
 
 Implementada a Pesquisa por Filmes desntro da Aplicação. Permite realizar as buscas, emite mensagem quando não localiza o filme, e apresenta o filme caso ele seja localizado.
 
@@ -273,6 +285,7 @@ Implementada a Pesquisa por Filmes desntro da Aplicação. Permite realizar as b
 - [ ] Apresentar uma mini-lista dos filmes da categoria na tela de detalhe do filme
 - [x] Capacidade de pesquisar Filmes
 - [x] Utilizar FireBase para efetuar login no APP
+- [x] Criar novos usuários para login
 
 ---
 
@@ -290,10 +303,17 @@ As seguintes informações constam no relatório 1:
 
 ---
 
-### <a name="item32"></a>3.2 Informações do Relatório 2:
+### <a name="item32"></a>3.2 Informações dos Relatórios 2 e 3:
 
-O Relatório 3, apresenta todas as informações do Relatório 2, complementando as evoluções dos desenvolvimentos do time.
-Além da atividade de Busca/Pesquisa, solicitada adicionalmente em nossa última agenda.
+Devido as entregas serem combinadas, onde a entrega do relatório 2 referia-se a entrega parcial da avaliação e a entrega do relatório 3 a entrega final, optamos por criar um item adicional que apresenta o status na entrega parcial e a respectiva evolução para a entrega final.
+Este detalhamento encontra-se nos itens 7 e 8 deste relatório, mas nestes relatórios constam as informações dos desenvolvimentos das funcionalidades:
+
+- [Login com Firebase]
+- [Criação de novos usuários]
+- [Compartilhar Filmes]
+- [Pesquisa de Filmes]
+- [Melhorias e ajustes na interface]
+- [Assistir Trailer de Filme]
 
 ---
 
@@ -311,9 +331,9 @@ Além da atividade de Busca/Pesquisa, solicitada adicionalmente em nossa última
 
   <img src="/app/src/main/res/drawable/acesso_info_externa.gif" height="500" width="250">
 
-### <a name="item44"></a>4.4 Acesso a detalhes através das categorias
+### <a name="item44"></a>4.4 Pesquisa de Filmes
 
-  <img src="/app/src/main/res/drawable/acesso_categoria_detalhe.gif" height="500" width="250">
+  <img src="/app/src/main/res/drawable/pesquisa_filmes.gif" height="500" width="250">
 
 ---
 
@@ -335,13 +355,11 @@ Além da atividade de Busca/Pesquisa, solicitada adicionalmente em nossa última
 - <a name="item521"></a>Tela de login com Firebase
   <img src="/app/src/main/res/drawable/login.jpeg" height="500" width="250">
 - <a name="item522"></a>Tela de Busca/Pesquisa  
-  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
-- <a name="item523"></a>Assistir Trailer do filme  
-  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
-- <a name="item524"></a>Criação de conta 
-  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
-- <a name="item525"></a>Implementação Logout 
-  <img src="/app/src/main/res/drawable/xxxxx.xxx" height="500" width="250">
+  <img src="/app/src/main/res/drawable/pesquisa_filmes.jpeg" height="500" width="250">
+- <a name="item523"></a>Criação de conta 
+  <img src="/app/src/main/res/drawable/cria_usuario.jpeg" height="500" width="250">
+- <a name="item524"></a>Mensagem de erro Login 
+  <img src="/app/src/main/res/drawable/erro_login.jpeg" height="500" width="250">
 
 
 ---
@@ -394,18 +412,18 @@ Legenda de prioriodades:
 
 ## <a name="item8"></a>8. Tarefas implementadas para a entrega final:
 
-| Tarefa                                                 | Responsável        | Desenvolvido | Observações |
-| ------------------------------------------------------ | ------------------ | ------------ | ----------- |
-| Função de logout                                       | Filipe Drago       | -----sim---- |             |
-| Implementar uso de biometria                           | _a definir_        |              | Backlok     |
-| Implementar comentários e avaliações dos filmes        | _a definir_        |              | Backlok     |
-| Apresentar filmes de mesma categoria dentro do detalhe | _a definir_        |              | Backlok     |
-| Implementar categoria favoritos                        | _a definir_        |              | Backlok     |
-| Função "favoritar filmes"                              | _a definir_        |              | Backlok     |
-| Botão "assistir trailer no _YouTube_"                  | Márcio Alves       | -----sim---- |             |
-| Função de busca                                        | Fabricio Wolff     | -----sim---- |             |
-| Implementação de login com _FireBase_                  | Filipe / Márcio    | -----sim---- |             |
-| Formulário de criação de conta                         | Rafael Panzenhagen | -----sim---- |             |
-| Validação da criação de conta                          | Fabricio Wolff     | -----sim---- |             |
-| Criação do ícone do aplicativo                         | _a definir_        |              | Backlok     |
+| Tarefa                                                 | Responsável        | Desenvolvido  | Observações |
+| ------------------------------------------------------ | ------------------ | ------------- | ----------- |
+| Função de logout                                       | Filipe Drago       | -----sim----- |             |
+| Implementar uso de biometria                           | _a definir_        |               | Backlok     |
+| Implementar comentários e avaliações dos filmes        | _a definir_        |               | Backlok     |
+| Apresentar filmes de mesma categoria dentro do detalhe | _a definir_        |               | Backlok     |
+| Implementar categoria favoritos                        | _a definir_        |               | Backlok     |
+| Função "favoritar filmes"                              | _a definir_        |               | Backlok     |
+| Botão "assistir trailer no _YouTube_"                  | Márcio Alves       | -----sim----- |             |
+| Função de busca                                        | Fabricio Wolff     | -----sim----- |             |
+| Implementação de login com _FireBase_                  | Filipe / Márcio    | -----sim----- |             |
+| Formulário de criação de conta                         | Rafael Panzenhagen | -----sim----- |             |
+| Validação da criação de conta                          | Fabricio Wolff     | -----sim----- |             |
+| Criação do ícone do aplicativo                         | _a definir_        |               | Backlok     |
 
