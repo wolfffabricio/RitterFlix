@@ -28,7 +28,7 @@
 
 - [3. Detalhamento do Aplicativo](#item3)
   - [3.1 Informações do Relatório 1](#item31)
-  - [3.2 Informações do Relatório 2](#item32)
+  - [3.2 Informações do Relatório 2 e 3](#item32)
 
 - [4. Animações demonstrativas](#item4)
   - [4.1 Login no aplicativo](#item41)
@@ -306,7 +306,14 @@ As seguintes informações constam no relatório 1:
 ### <a name="item32"></a>3.2 Informações dos Relatórios 2 e 3:
 
 Devido as entregas serem combinadas, onde a entrega do relatório 2 referia-se a entrega parcial da avaliação e a entrega do relatório 3 a entrega final, optamos por criar um item adicional que apresenta o status na entrega parcial e a respectiva evolução para a entrega final.
-Este detalhamento encontra-se nos itens 7 e 8 deste relatório.
+Este detalhamento encontra-se nos itens 7 e 8 deste relatório, mas nestes relatórios constam as informações dos desenvolvimentos das funcionalidades:
+
+- [Login com Firebase]
+- [Criação de novos usuários]
+- [Compartilhar Filmes]
+- [Pesquisa de Filmes]
+- [Melhorias e ajustes na interface]
+- [Assistir Trailer de Filme]
 
 ---
 
