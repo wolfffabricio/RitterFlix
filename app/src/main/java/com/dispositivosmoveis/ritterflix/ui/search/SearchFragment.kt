@@ -70,6 +70,7 @@ class SearchFragment : Fragment() {
 
     private fun showPlaceholder(show: Boolean, message: String = "") {
         tv_placeholder.visibility = if (show) View.VISIBLE else View.INVISIBLE
+        rv_search.visibility = if (!show) View.VISIBLE else View.INVISIBLE
         tv_placeholder.text = message
     }
 
