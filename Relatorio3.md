@@ -13,6 +13,7 @@
 ### Índice:
 
 - [1. Desenvolvimentos e Melhorias implementados após 02/12/2020](#item1)
+
   - [1.1 Validação de dados com FireBase](#item11)
   - [1.2 Novos usuários](#item12)
   - [1.3 Compartilhamento de filmes](#item13)
@@ -27,6 +28,7 @@
   <!-- Item detalhamento: referenciar tudo para o relatório 1 -->
 
 - [3. Detalhamento do Aplicativo](#item3)
+
   - [3.1 Informações do Relatório 1](#item31)
   - [3.2 Informações do Relatório 2 e 3](#item32)
 
@@ -35,8 +37,8 @@
   - [4.2 Compartilhamento externo de informações](#item42)
   - [4.3 Acesso a informações compartilhadas externamente](#item43)
   - [4.4 Pesquisa de Filmes](#item44)
-  
 - [5. Telas do Aplicativo](#item5)
+
   - [5.1 Telas desenvolvidas - Relatório 1](#item51)
   - [5.2 Telas desenvolvidas - Relatório 2 e 3](#item52)
 
@@ -120,6 +122,7 @@ class LoginFirebase : AppCompatActivity() {
   ...
 }
 ```
+
 ### <a name="item12"></a>1.2 Novos Usuários
 
 Capacidade de registrar novos usuários com e-mail e senha, persistindo os dados.
@@ -263,7 +266,6 @@ A partir dos detalhes de um determinado Filme, o usuário tem a possibilidade de
 
 Implementada a Pesquisa por Filmes desntro da Aplicação. Permite realizar as buscas, emite mensagem quando não localiza o filme, e apresenta o filme caso ele seja localizado.
 
-
 ## <a name="item2"></a>2. Funcionalidades do aplicativo:
 
 ### <a name="item21"></a>2.1 Itens obrigatórios
@@ -319,19 +321,19 @@ Este detalhamento encontra-se nos itens 7 e 8 deste relatório, mas nestes relat
 
 ## <a name="item4"></a>4. Animações Demonstrativas
 
-### <a name="item41"></a>4.1 Login no aplicativo   
+### <a name="item41"></a>4.1 Login no aplicativo
 
   <img src="/app/src/main/res/drawable/login_gif.gif" height="500" width="250">
 
-### <a name="item42"></a>4.2 Compartilhamento externo de informações   
+### <a name="item42"></a>4.2 Compartilhamento externo de informações
 
   <img src="/app/src/main/res/drawable/compartilhar_externo.gif" height="500" width="250">
 
-### <a name="item43"></a>4.3 Acesso a informações compartilhadas externamente   
+### <a name="item43"></a>4.3 Acesso a informações compartilhadas externamente
 
   <img src="/app/src/main/res/drawable/acesso_info_externa.gif" height="500" width="250">
 
-### <a name="item44"></a>4.4 Pesquisa de Filmes   
+### <a name="item44"></a>4.4 Pesquisa de Filmes
 
   <img src="/app/src/main/res/drawable/pesquisa_filmes.gif" height="500" width="250">
 
@@ -352,21 +354,20 @@ Este detalhamento encontra-se nos itens 7 e 8 deste relatório, mas nestes relat
 
 ### <a name="item52"></a>5.2 Telas desenvolvidas - Relatórios 2 e 3:
 
-- <a name="item521"></a>Tela de login com Firebase   
+- <a name="item521"></a>Tela de login com Firebase  
   <img src="/app/src/main/res/drawable/login.jpeg" height="500" width="250">
 - <a name="item522"></a>Tela de Busca/Pesquisa  
-  <img src="/app/src/main/res/drawable/pesquisa_filmes.jpeg" height="500" width="250">
+  <img src="/app/src/main/res/drawable/pesquisa_filme.jpeg" height="500" width="250">
 - <a name="item523"></a>Criação de conta  
   <img src="/app/src/main/res/drawable/cria_usuario.jpeg" height="500" width="250">
 - <a name="item524"></a>Mensagem de erro Login  
   <img src="/app/src/main/res/drawable/erro_login.jpeg" height="500" width="250">
 
-
 ---
 
 ## <a name="item6"></a>6. Tarefas implementadas na entrega do Relatório 1:
 
-| Tarefa                                      | Responsável        |  Desenvolvido  |
+| Tarefa                                      | Responsável        | Desenvolvido   |
 | ------------------------------------------- | ------------------ | -------------- |
 | Componente "bottom bar"                     | Filipe Drago       | -----sim------ |
 | Função de logout                            | Lucas Rambo        |                |
@@ -426,4 +427,3 @@ Legenda de prioriodades:
 | Formulário de criação de conta                         | Rafael Panzenhagen | -----sim----- |             |
 | Validação da criação de conta                          | Fabricio Wolff     | -----sim----- |             |
 | Criação do ícone do aplicativo                         | _a definir_        |               | Backlok     |
-
