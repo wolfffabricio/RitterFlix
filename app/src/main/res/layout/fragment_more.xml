@@ -38,6 +38,20 @@
                 android:textAlignment="center"
                 android:textSize="22sp"
                 android:textColor="@color/colorAlto" />
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="Logout" />
+
+
         </RelativeLayout>
+
+
     </LinearLayout>
 </FrameLayout>

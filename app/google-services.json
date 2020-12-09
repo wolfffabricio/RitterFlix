@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "842507822676",
+    "firebase_url": "https://ritterflix-edb99.firebaseio.com",
+    "project_id": "ritterflix-edb99",
+    "storage_bucket": "ritterflix-edb99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842507822676:android:488920a344ebe55d132fc1",
+        "android_client_info": {
+          "package_name": "com.dispositivosmoveis.ritterflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842507822676-8jhulg8ovt2f9rqdtlprnaq079gf3l4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5Q632-BgwlEowvEbvWZhXG5kMGYD6OVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842507822676-8jhulg8ovt2f9rqdtlprnaq079gf3l4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

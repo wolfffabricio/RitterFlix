@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -81,6 +82,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$navigation_lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$navigation_lifecycle"
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
 
     // Tests
     testImplementation "junit:junit:$junit_version"
