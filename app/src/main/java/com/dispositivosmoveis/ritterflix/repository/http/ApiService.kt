@@ -47,4 +47,12 @@ interface ApiService {
         @Query("include_video") includeVideo: Boolean,
         @Query("with_genres") withGenres: String
     ): Call<Popular>
+
+    @GET("3/search/movie")
+    fun searchMovie(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("page") page: Int,
+        @Query("query") value: String
+    ): Call<Popular>
 }

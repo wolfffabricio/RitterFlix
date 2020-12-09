@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import com.dispositivosmoveis.ritterflix.R
 import com.dispositivosmoveis.ritterflix.ui.categoryFilms.CategoryFilmsFragment
 import com.dispositivosmoveis.ritterflix.ui.detail.MovieDetailFragment
+import com.dispositivosmoveis.ritterflix.ui.more.MoreFragment
+import com.dispositivosmoveis.ritterflix.ui.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -23,8 +25,10 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val homeFragment = HomeFragment()
-        val searchFragment = SearchFragment()
-        val moreFragment = MoreFragment()
+        val searchFragment =
+            SearchFragment()
+        val moreFragment =
+            MoreFragment()
 
         makeCurrentFragment(homeFragment)
 
