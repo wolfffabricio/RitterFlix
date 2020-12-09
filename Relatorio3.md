@@ -319,19 +319,19 @@ Este detalhamento encontra-se nos itens 7 e 8 deste relatório, mas nestes relat
 
 ## <a name="item4"></a>4. Animações Demonstrativas
 
-### <a name="item41"></a>4.1 Login no aplicativo
+### <a name="item41"></a>4.1 Login no aplicativo   
 
   <img src="/app/src/main/res/drawable/login_gif.gif" height="500" width="250">
 
-### <a name="item42"></a>4.2 Compartilhamento externo de informações
+### <a name="item42"></a>4.2 Compartilhamento externo de informações   
 
   <img src="/app/src/main/res/drawable/compartilhar_externo.gif" height="500" width="250">
 
-### <a name="item43"></a>4.3 Acesso a informações compartilhadas externamente
+### <a name="item43"></a>4.3 Acesso a informações compartilhadas externamente   
 
   <img src="/app/src/main/res/drawable/acesso_info_externa.gif" height="500" width="250">
 
-### <a name="item44"></a>4.4 Pesquisa de Filmes
+### <a name="item44"></a>4.4 Pesquisa de Filmes   
 
   <img src="/app/src/main/res/drawable/pesquisa_filmes.gif" height="500" width="250">
 
@@ -352,13 +352,13 @@ Este detalhamento encontra-se nos itens 7 e 8 deste relatório, mas nestes relat
 
 ### <a name="item52"></a>5.2 Telas desenvolvidas - Relatórios 2 e 3:
 
-- <a name="item521"></a>Tela de login com Firebase
+- <a name="item521"></a>Tela de login com Firebase   
   <img src="/app/src/main/res/drawable/login.jpeg" height="500" width="250">
 - <a name="item522"></a>Tela de Busca/Pesquisa  
   <img src="/app/src/main/res/drawable/pesquisa_filmes.jpeg" height="500" width="250">
-- <a name="item523"></a>Criação de conta 
+- <a name="item523"></a>Criação de conta  
   <img src="/app/src/main/res/drawable/cria_usuario.jpeg" height="500" width="250">
-- <a name="item524"></a>Mensagem de erro Login 
+- <a name="item524"></a>Mensagem de erro Login  
   <img src="/app/src/main/res/drawable/erro_login.jpeg" height="500" width="250">
 
 
